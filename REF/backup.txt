@@ -1,0 +1,237 @@
+// collyclicker/app/ctest.go
+
+package main
+
+import (
+	"fmt"
+	"log"
+	"regexp"
+	"strings"
+	"time"
+
+	"collyclicker/internal/scraper"
+
+	"github.com/PuerkitoBio/goquery"
+	"github.com/gocolly/colly/v2"
+)
+
+func main() {
+	var teamindex = 0 //I hate this but Need to get to production for now.
+	type TeamTables struct {
+		Title   string
+		TabName string
+		Headers []string
+		Rows    [][]string
+	}
+	type TeamData struct {
+		Teamname    string
+		CoachNames  []string
+		CaptiaNames []string
+		Formation   string
+		AllTables   [][]TeamTables
+	}
+	//Slice of team datas
+	var pageData = []TeamData{
+		{},
+		{},
+	}
+
+	c := colly.NewCollector(
+		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
+	)
+	c.Limit((&colly.LimitRule{
+		RandomDelay: 2 * time.Second,
+		DomainGlob:  "*",
+	}))
+	//Specify the Selector: The element of the page you want
+	//Specify the Handler: How do you want the data managed
+	sh := []scraper.SelectorHandler{
+		{
+			//@ div.datapoint(a div with a class name datapoint) --> captain / Manager names --> add them to struct
+			Selector: "div.datapoint",
+			Handler: func(e *colly.HTMLElement) {
+
+				text := strings.TrimSpace(e.Text)
+				if strings.HasPrefix(text, "Manager:") {
+					pageData[modIndex(teamindex)].CoachNames = append(pageData[modIndex(teamindex)].CoachNames, strings.TrimPrefix(text, "Manager:"))
+				} else if strings.HasPrefix(text, "Captian:") {
+					pageData[modIndex(teamindex)].CoachNames = append(pageData[modIndex(teamindex)].CoachNames, strings.TrimPrefix(text, "Captian:"))
+				}
+				fmt.Print("Team index", teamindex)
+				fmt.Println("Mod division return", modIndex(teamindex))
+				teamindex++
+			},
+		},
+		{
+			//@ div.lineup (a div with a class name lineup) --> table header with the colspan attribute
+			//--> Formation --> add them to struct.
+			Selector: "div.lineup th[colspan]",
+			Handler: func(e *colly.HTMLElement) {
+				text := strings.TrimSpace(e.Text)
+				re := regexp.MustCompile(`\(([\d\-]+)\)`)
+				if text != "Bench" {
+					match := re.FindStringSubmatch(text)
+					pageData[modIndex(teamindex)].Formation = match[1]
+					teamindex++
+				}
+				fmt.Print("Formation:  Team index", teamindex)
+				fmt.Print(" Mod division return", modIndex(teamindex))
+				fmt.Print("  ", pageData[modIndex(teamindex)].Formation)
+
+			},
+		},
+		{
+			Selector: "div[id^='all_player_stats']",
+			Handler: func(e *colly.HTMLElement) {
+				var Tables []TeamTables
+
+				title := strings.TrimSpace(e.DOM.Find("h2").Eq(1).Text())
+				//@ div w/ ID all_player_stats --> select div w/ class filter & switcher --> the div with in that
+				//-->table tabs --> add to TeamTables Object
+				e.DOM.Find("div.filter.switcher a.sr_preset").Each(func(_ int, tab *goquery.Selection) {
+					var Table TeamTables
+					Table.Title = title
+					tabName := strings.TrimSpace(strings.ToLower(tab.Text()))
+					suffix := strings.ReplaceAll(tabName, " ", "_")
+
+					//becuase fbref sucks
+					if suffix == "pass_types" {
+						suffix = "passing_types"
+					}
+					if suffix == "defensive_actions" {
+						suffix = "defense"
+					}
+					if suffix == "miscellaneous_stats" {
+						suffix = "misc"
+					}
+
+					Table.TabName = suffix
+
+					var matchedTable *goquery.Selection
+
+					e.DOM.Find("table[id^='stats_']").Each(func(_ int, table *goquery.Selection) {
+						id, exists := table.Attr("id")
+						if !exists {
+							return
+						}
+
+						//fmt.Println(id, suffix) //what am I getting
+
+						if strings.Contains(id, suffix) {
+							matchedTable = table
+						}
+					})
+					if matchedTable == nil {
+						fmt.Printf("No table found for tab %s\n", tabName)
+						return
+					}
+
+					matchedTable.Find("thead tr").Each(func(i int, header *goquery.Selection) {
+						var headers []string
+						if val, _ := header.Attr("class"); val == "over_header" {
+							return
+						}
+						header.Find("th").Each(func(i int, cell *goquery.Selection) {
+							headers = append(headers, strings.TrimSpace(cell.Text()))
+						})
+						//fmt.Println(strings.Join(headers, ","))
+						Table.Headers = headers
+					})
+					matchedTable.Find("tbody tr").Each(func(i int, row *goquery.Selection) {
+						var rowA []string
+						row.Find("th, td").Each(func(i int, cell *goquery.Selection) {
+							rowA = append(rowA, strings.TrimSpace(cell.Text()))
+						})
+						Table.Rows = append(Table.Rows, rowA)
+					})
+				})
+				fmt.Print("Team index", teamindex)
+				fmt.Println("Mod division return", modIndex(teamindex))
+				pageData[modIndex(teamindex)].AllTables = append(pageData[modIndex(teamindex)].AllTables, Tables)
+				teamindex++
+			},
+		},
+		{
+			//removed for now dont need
+			//Selector: "div#all_shots",
+			Selector: "",
+			Handler: func(e *colly.HTMLElement) {
+				var headers []string
+				var rowdata []string
+				var tableContent [][]string
+				//Get headers of Shots table
+				e.DOM.Find("thead tr").Eq(1).Find("th").Each(func(_ int, th *goquery.Selection) {
+					headers = append(headers, strings.TrimSpace(th.Text()))
+				})
+				tableContent = append(tableContent, headers)
+				//Get title of shots table
+				ttitle := e.DOM.Find("h2").Eq(1).Text()
+				//Get table Content
+				e.DOM.Find("tbody").Eq(1).Each(func(_ int, row *goquery.Selection) {
+					row.Find("td,tr").Each(func(_ int, cell *goquery.Selection) {
+						rowdata = append(rowdata, strings.TrimSpace(cell.Text()))
+					})
+					tableContent = append(tableContent, rowdata)
+				})
+
+				//Just printing the reuslts for now
+				fmt.Println(ttitle)
+				for _, data := range tableContent {
+					fmt.Println(strings.Join(data, ","))
+				}
+				//fmt.Println("Summary Stats:", e.Text)
+			},
+		},
+	}
+	//Init constructor.
+	cfg := &scraper.ScraperConfig{
+		Collector:     c,
+		UseProxy:      false,
+		LinkSelectors: sh,
+		Debug:         true,
+	}
+
+	//This handler function is what we are passing into our Scape Method.
+	testlink := "https://fbref.com/en/matches/cc5b4244/Manchester-United-Fulham-August-16-2024-Premier-League"
+	s := scraper.NewCollyScraper(cfg)
+
+	err := s.Scrape(testlink)
+	//s.Config.Collector.OnScraped(func(r *colly.Response) { println("when is this called") })
+	// Print out all structured tables after scraping
+	if err != nil {
+		log.Printf("Error scraping %s : %v", testlink, err)
+	}
+	// After scrape finishes
+	for teamIdx, team := range pageData {
+		fmt.Printf("\n========== TEAM #%d ==========\n", teamIdx+1)
+
+		fmt.Println("Team Name:", team.Teamname)
+		fmt.Println("Coach Names:", strings.Join(team.CoachNames, ", "))
+		fmt.Println("Captain Names:", strings.Join(team.CaptiaNames, ", "))
+		fmt.Println("Formation:", team.Formation)
+
+		for tableGroupIdx, tableGroup := range team.AllTables {
+			fmt.Printf("\n--- Table Group #%d ---\n", tableGroupIdx+1)
+			for tableIdx, table := range tableGroup {
+				fmt.Printf("\n   --- Table #%d ---\n", tableIdx+1)
+				fmt.Println("   Title:", table.Title)
+				fmt.Println("   Tab Name:", table.TabName)
+				fmt.Println("   Headers:", strings.Join(table.Headers, ", "))
+				fmt.Println("   Rows:")
+				for _, row := range table.Rows {
+					fmt.Println("    ", strings.Join(row, ", "))
+				}
+			}
+		}
+	}
+
+}
+
+func modIndex(num int) int {
+	if num == 0 {
+		return 0
+	} else {
+		return num % 2
+	}
+
+}

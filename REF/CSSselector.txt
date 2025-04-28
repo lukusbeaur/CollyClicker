@@ -1,0 +1,39 @@
+📜 CSS Selector Cheat Sheet for Web Scraping
+🔹 Basic Selectors
+Selector	Meaning	Example
+*	All elements	*
+div	All <div> tags	div
+.className	Elements with a specific class	.player-card
+#idName	Element with a specific ID	#all_shots
+div > p	Direct <p> child of <div> (one level deep)	div > p
+div p	Any <p> descendant of <div> (any level deep)	div p
+div, p	Either div or p elements (comma-separated multiple matches)	div, p
+🔹 HTML Table Structure Selectors
+Element	Meaning	CSS Selector Example
+<table>	A table element	table
+<thead>	Table header block	table thead
+<tbody>	Table body (rows go here)	table tbody
+<tfoot>	Table footer	table tfoot
+<tr>	A single table row	table tbody tr
+<th>	Table header cell	thead tr th, tr th
+<td>	Table data cell	tr td, td[data-stat="xg"]
+🔹 Attribute Selectors
+Selector	Meaning	Example
+[attr]	Element with any attribute set	a[href]
+[attr='value']	Attribute exactly equals value	td[data-stat='player']
+[attr^='start']	Attribute starts with a value	div[id^='all_']
+[attr$='end']	Attribute ends with a value	img[src$='.jpg']
+[attr*='part']	Attribute contains substring	div[class*='summary']
+🔹 Pseudo-Selectors (GoQuery supported)
+Selector	Meaning	Example
+:first-child	First child of parent	ul li:first-child
+:last-child	Last child of parent	ul li:last-child
+:nth-child(n)	nth child (1-based)	tr:nth-child(2)
+:contains('text')	Element contains this text	h2:contains('Shots')
+🧰 Colly/GoQuery Usage Patterns
+Goal	Code
+Get text of a heading	e.DOM.Find("h2").Text()
+Get table headers	e.DOM.Find("thead tr").Eq(1).Find("th").Each(...)
+Loop over table rows	e.DOM.Find("tbody tr").Each(...)
+Get text from a cell	cell.Text() or e.ChildText("td[data-stat='xg']")
+Get attribute from cell	cell.Attr("data-stat")
