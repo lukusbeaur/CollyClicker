@@ -16,7 +16,15 @@ import (
 )
 
 func main() {
-	var teamindex = 0 //I hate this but Need to get to production for now.
+	//i hate this but i need to do this for production.
+	// We divide the counter by 2 because each team (Home/Away) has two datapoints (e.g., Manager and Captain) listed flatly.
+	// Example: counter 0/1 -> first team, counter 2/3 -> second team, etc.
+	// This keeps team data grouped correctly inside the pageData slice.
+	var datapointCounter = 0
+	var formationCounter = 0
+	var tablesCounter = 0
+	var keeperCounter = 0
+
 	type TeamTables struct {
 		Title   string
 		TabName string
@@ -24,17 +32,14 @@ func main() {
 		Rows    [][]string
 	}
 	type TeamData struct {
-		Teamname    string
-		CoachNames  []string
-		CaptiaNames []string
-		Formation   string
-		AllTables   [][]TeamTables
+		Teamname     string
+		CoachNames   []string
+		CaptainNames []string
+		Formation    string
+		AllTables    [][]TeamTables
 	}
-	//Slice of team datas
-	var pageData = []TeamData{
-		{},
-		{},
-	}
+	// Pre-allocate for two teams (Home and Away)
+	var pageData = []TeamData{{}, {}}
 
 	c := colly.NewCollector(
 		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
@@ -43,6 +48,7 @@ func main() {
 		RandomDelay: 2 * time.Second,
 		DomainGlob:  "*",
 	}))
+
 	//Specify the Selector: The element of the page you want
 	//Specify the Handler: How do you want the data managed
 	sh := []scraper.SelectorHandler{
@@ -50,16 +56,16 @@ func main() {
 			//@ div.datapoint(a div with a class name datapoint) --> captain / Manager names --> add them to struct
 			Selector: "div.datapoint",
 			Handler: func(e *colly.HTMLElement) {
-
 				text := strings.TrimSpace(e.Text)
+				//Check to see if Selector has a prefix of Manager or captain,
+				//if so --> append pageData Object slice @[handler specific counter /2] //Check logic notes above for why counter/2
+
 				if strings.HasPrefix(text, "Manager:") {
-					pageData[modIndex(teamindex)].CoachNames = append(pageData[modIndex(teamindex)].CoachNames, strings.TrimPrefix(text, "Manager:"))
-				} else if strings.HasPrefix(text, "Captian:") {
-					pageData[modIndex(teamindex)].CoachNames = append(pageData[modIndex(teamindex)].CoachNames, strings.TrimPrefix(text, "Captian:"))
+					pageData[datapointCounter/2].CoachNames = append(pageData[datapointCounter/2].CoachNames, strings.TrimPrefix(text, "Manager:"))
+				} else if strings.HasPrefix(text, "Captain:") {
+					pageData[datapointCounter/2].CaptainNames = append(pageData[datapointCounter/2].CaptainNames, strings.TrimPrefix(text, "Captain:"))
 				}
-				fmt.Print("Team index", teamindex)
-				fmt.Println("Mod division return", modIndex(teamindex))
-				teamindex++
+				datapointCounter++
 			},
 		},
 		{
@@ -67,34 +73,40 @@ func main() {
 			//--> Formation --> add them to struct.
 			Selector: "div.lineup th[colspan]",
 			Handler: func(e *colly.HTMLElement) {
+				//Regex formation Manchester Utd (4-2-3-1) --> 4-2-3-1
 				text := strings.TrimSpace(e.Text)
-				re := regexp.MustCompile(`\(([\d\-]+)\)`)
+				re := regexp.MustCompile(`\(([^\)]+)\)`)
+				//'Bench' is embedded in this Selector. != Bench assign Formation data.
 				if text != "Bench" {
 					match := re.FindStringSubmatch(text)
-					pageData[modIndex(teamindex)].Formation = match[1]
-					teamindex++
+					if len(match) > 1 {
+						pageData[formationCounter/2].Formation = match[1]
+					}
 				}
-				fmt.Print("Formation:  Team index", teamindex)
-				fmt.Print(" Mod division return", modIndex(teamindex))
-				fmt.Print("  ", pageData[modIndex(teamindex)].Formation)
-
+				formationCounter++
 			},
 		},
 		{
+			//@ div w/ ID all_player_stats --> select div w/ class filter & switcher --> the div with in that
+			//-->table tabs --> add to TeamTables Object
 			Selector: "div[id^='all_player_stats']",
 			Handler: func(e *colly.HTMLElement) {
 				var Tables []TeamTables
-
+				// Save teamname into the TeamData
 				title := strings.TrimSpace(e.DOM.Find("h2").Eq(1).Text())
-				//@ div w/ ID all_player_stats --> select div w/ class filter & switcher --> the div with in that
-				//-->table tabs --> add to TeamTables Object
+
+				//@div--> Filter Class --> switcher Class -> Embedded a.sr_preset element
+				//Find all tabs names.
 				e.DOM.Find("div.filter.switcher a.sr_preset").Each(func(_ int, tab *goquery.Selection) {
 					var Table TeamTables
 					Table.Title = title
+
 					tabName := strings.TrimSpace(strings.ToLower(tab.Text()))
 					suffix := strings.ReplaceAll(tabName, " ", "_")
 
-					//becuase fbref sucks
+					//So annoying but no nice way to do this.
+					//The Table ID and Table Class names are not the same, as the tab class and tab ID names
+					//So in order to make sure logic below works, We must manually change them. GROSS
 					if suffix == "pass_types" {
 						suffix = "passing_types"
 					}
@@ -106,17 +118,17 @@ func main() {
 					}
 
 					Table.TabName = suffix
-
+					//A floating goQuery for a matched table.
 					var matchedTable *goquery.Selection
 
+					//@table /w ID starting with '_stats'
 					e.DOM.Find("table[id^='stats_']").Each(func(_ int, table *goquery.Selection) {
 						id, exists := table.Attr("id")
 						if !exists {
 							return
 						}
-
-						//fmt.Println(id, suffix) //what am I getting
-
+						//if our table attribute 'id' contains the sanatized classname 'suffix',
+						//assign matchedTable Query as table(our Each(*goquery))
 						if strings.Contains(id, suffix) {
 							matchedTable = table
 						}
@@ -125,65 +137,81 @@ func main() {
 						fmt.Printf("No table found for tab %s\n", tabName)
 						return
 					}
-
-					matchedTable.Find("thead tr").Each(func(i int, header *goquery.Selection) {
+					//@matchedTable --> Find Table head --> Table row--> get all [th] table headers
+					matchedTable.Find("thead tr").Each(func(_ int, header *goquery.Selection) {
 						var headers []string
+						//Skip the overheaders we dont need em
 						if val, _ := header.Attr("class"); val == "over_header" {
 							return
 						}
-						header.Find("th").Each(func(i int, cell *goquery.Selection) {
+						//
+						header.Find("th").Each(func(_ int, cell *goquery.Selection) {
 							headers = append(headers, strings.TrimSpace(cell.Text()))
 						})
-						//fmt.Println(strings.Join(headers, ","))
 						Table.Headers = headers
 					})
-					matchedTable.Find("tbody tr").Each(func(i int, row *goquery.Selection) {
+					//@matchedTable find the tbody --> Embeddeded Table rows --> th, td Cell data
+					matchedTable.Find("tbody tr").Each(func(_ int, row *goquery.Selection) {
 						var rowA []string
-						row.Find("th, td").Each(func(i int, cell *goquery.Selection) {
+						row.Find("th, td").Each(func(_ int, cell *goquery.Selection) {
 							rowA = append(rowA, strings.TrimSpace(cell.Text()))
 						})
 						Table.Rows = append(Table.Rows, rowA)
 					})
+					//Tables slice will be appended with each table.
+					Tables = append(Tables, Table)
 				})
-				fmt.Print("Team index", teamindex)
-				fmt.Println("Mod division return", modIndex(teamindex))
-				pageData[modIndex(teamindex)].AllTables = append(pageData[modIndex(teamindex)].AllTables, Tables)
-				teamindex++
+				//Append PageData object[counter/2]
+				pageData[tablesCounter/2].AllTables = append(pageData[tablesCounter/2].AllTables, Tables)
+				tablesCounter++
 			},
 		},
 		{
-			//removed for now dont need
-			//Selector: "div#all_shots",
-			Selector: "",
+			Selector: "div[id^='all_keeper_stats_']",
 			Handler: func(e *colly.HTMLElement) {
-				var headers []string
-				var rowdata []string
-				var tableContent [][]string
-				//Get headers of Shots table
-				e.DOM.Find("thead tr").Eq(1).Find("th").Each(func(_ int, th *goquery.Selection) {
-					headers = append(headers, strings.TrimSpace(th.Text()))
-				})
-				tableContent = append(tableContent, headers)
-				//Get title of shots table
-				ttitle := e.DOM.Find("h2").Eq(1).Text()
-				//Get table Content
-				e.DOM.Find("tbody").Eq(1).Each(func(_ int, row *goquery.Selection) {
-					row.Find("td,tr").Each(func(_ int, cell *goquery.Selection) {
-						rowdata = append(rowdata, strings.TrimSpace(cell.Text()))
+				var tables TeamTables
+
+				fullTitle := strings.TrimSpace(e.DOM.Find("h2").Text())
+				tables.Title = fullTitle
+				tables.TabName = "keeper_stats"
+
+				// Extract Team Name
+				teamName := extractTeamName(fullTitle)
+				if pageData[keeperCounter].Teamname == "" {
+					pageData[keeperCounter].Teamname = teamName
+				}
+
+				// Find table
+				table := e.DOM.Find("table.stats_table")
+
+				// Headers
+				table.Find("thead tr").Each(func(_ int, tr *goquery.Selection) {
+					if class, _ := tr.Attr("class"); class == "over_header" {
+						return
+					}
+					tr.Find("th").Each(func(_ int, th *goquery.Selection) {
+						tables.Headers = append(tables.Headers, strings.TrimSpace(th.Text()))
 					})
-					tableContent = append(tableContent, rowdata)
 				})
 
-				//Just printing the reuslts for now
-				fmt.Println(ttitle)
-				for _, data := range tableContent {
-					fmt.Println(strings.Join(data, ","))
-				}
-				//fmt.Println("Summary Stats:", e.Text)
+				// Rows
+				table.Find("tbody tr").Each(func(_ int, row *goquery.Selection) {
+					var rowData []string
+					row.Find("th, td").Each(func(_ int, cell *goquery.Selection) {
+						rowData = append(rowData, strings.TrimSpace(cell.Text()))
+					})
+					tables.Rows = append(tables.Rows, rowData)
+				})
+
+				// Save into a new table group
+				pageData[keeperCounter].AllTables = append(pageData[keeperCounter].AllTables, []TeamTables{tables})
+
+				keeperCounter++ // move after saving
 			},
 		},
 	}
-	//Init constructor.
+
+	// Init constructor.
 	cfg := &scraper.ScraperConfig{
 		Collector:     c,
 		UseProxy:      false,
@@ -191,32 +219,34 @@ func main() {
 		Debug:         true,
 	}
 
-	//This handler function is what we are passing into our Scape Method.
 	testlink := "https://fbref.com/en/matches/cc5b4244/Manchester-United-Fulham-August-16-2024-Premier-League"
 	s := scraper.NewCollyScraper(cfg)
 
 	err := s.Scrape(testlink)
-	//s.Config.Collector.OnScraped(func(r *colly.Response) { println("when is this called") })
-	// Print out all structured tables after scraping
 	if err != nil {
 		log.Printf("Error scraping %s : %v", testlink, err)
 	}
-	// After scrape finishes
+
+	// After Scrape finishes, loop over the pageData slice
 	for teamIdx, team := range pageData {
 		fmt.Printf("\n========== TEAM #%d ==========\n", teamIdx+1)
-
 		fmt.Println("Team Name:", team.Teamname)
 		fmt.Println("Coach Names:", strings.Join(team.CoachNames, ", "))
-		fmt.Println("Captain Names:", strings.Join(team.CaptiaNames, ", "))
+		fmt.Println("Captain Names:", strings.Join(team.CaptainNames, ", "))
 		fmt.Println("Formation:", team.Formation)
 
+		// Loop over the slices of tables for this team
 		for tableGroupIdx, tableGroup := range team.AllTables {
 			fmt.Printf("\n--- Table Group #%d ---\n", tableGroupIdx+1)
+
+			// Loop over the individual tables inside the group
 			for tableIdx, table := range tableGroup {
 				fmt.Printf("\n   --- Table #%d ---\n", tableIdx+1)
 				fmt.Println("   Title:", table.Title)
 				fmt.Println("   Tab Name:", table.TabName)
 				fmt.Println("   Headers:", strings.Join(table.Headers, ", "))
+
+				// Print each row inside the table
 				fmt.Println("   Rows:")
 				for _, row := range table.Rows {
 					fmt.Println("    ", strings.Join(row, ", "))
@@ -227,11 +257,10 @@ func main() {
 
 }
 
-func modIndex(num int) int {
-	if num == 0 {
-		return 0
-	} else {
-		return num % 2
+func extractTeamName(title string) string {
+	parts := strings.Fields(title)
+	if len(parts) <= 2 {
+		return title // Not enough words to safely trim
 	}
-
+	return strings.Join(parts[:len(parts)-2], " ")
 }

@@ -17,16 +17,19 @@ import (
 
 func main() {
 	//i hate this but i need to do this for production.
+	// We divide the counter by 2 because each team (Home/Away) has two datapoints (e.g., Manager and Captain) listed flatly.
+	// Example: counter 0/1 -> first team, counter 2/3 -> second team, etc.
+	// This keeps team data grouped correctly inside the pageData slice.
 	var datapointCounter = 0
 	var formationCounter = 0
-	var tablesCounter = 0
-	//var teamnameCounter = 0
+	var keeperCounter = 0
 
 	type TeamTables struct {
-		Title   string
-		TabName string
-		Headers []string
-		Rows    [][]string
+		teamname string
+		Title    string
+		TabName  string
+		Headers  []string
+		Rows     [][]string
 	}
 	type TeamData struct {
 		Teamname     string
@@ -50,10 +53,13 @@ func main() {
 	//Specify the Handler: How do you want the data managed
 	sh := []scraper.SelectorHandler{
 		{
-			//@ div.datapoint --> Coach and Captain
+			//@ div.datapoint(a div with a class name datapoint) --> captain / Manager names --> add them to struct
 			Selector: "div.datapoint",
 			Handler: func(e *colly.HTMLElement) {
 				text := strings.TrimSpace(e.Text)
+				//Check to see if Selector has a prefix of Manager or captain,
+				//if so --> append pageData Object slice @[handler specific counter /2] //Check logic notes above for why counter/2
+
 				if strings.HasPrefix(text, "Manager:") {
 					pageData[datapointCounter/2].CoachNames = append(pageData[datapointCounter/2].CoachNames, strings.TrimPrefix(text, "Manager:"))
 				} else if strings.HasPrefix(text, "Captain:") {
@@ -63,11 +69,14 @@ func main() {
 			},
 		},
 		{
-			//@ div.lineup th[colspan] --> Formation
+			//@ div.lineup (a div with a class name lineup) --> table header with the colspan attribute
+			//--> Formation --> add them to struct.
 			Selector: "div.lineup th[colspan]",
 			Handler: func(e *colly.HTMLElement) {
+				//Regex formation Manchester Utd (4-2-3-1) --> 4-2-3-1
 				text := strings.TrimSpace(e.Text)
 				re := regexp.MustCompile(`\(([^\)]+)\)`)
+				//'Bench' is embedded in this Selector. != Bench assign Formation data.
 				if text != "Bench" {
 					match := re.FindStringSubmatch(text)
 					if len(match) > 1 {
@@ -78,19 +87,27 @@ func main() {
 			},
 		},
 		{
-			//@ div[id^='all_player_stats'] --> All Table Data
+			//@ div w/ ID all_player_stats --> select div w/ class filter & switcher --> the div with in that
+			//-->table tabs --> add to TeamTables Object
 			Selector: "div[id^='all_player_stats']",
 			Handler: func(e *colly.HTMLElement) {
 				var Tables []TeamTables
-				title := strings.TrimSpace(e.DOM.Find("h2").Eq(1).Text())
 				// Save teamname into the TeamData
+				title := strings.TrimSpace(e.DOM.Find("h2").Eq(1).Text())
+				Teamname := strings.TrimSpace(e.DOM.Find("caption").Eq(1).Text())
 
+				//@div--> Filter Class --> switcher Class -> Embedded a.sr_preset element
+				//Find all tabs names.
 				e.DOM.Find("div.filter.switcher a.sr_preset").Each(func(_ int, tab *goquery.Selection) {
 					var Table TeamTables
 					Table.Title = title
+					Table.teamname = Teamname
 					tabName := strings.TrimSpace(strings.ToLower(tab.Text()))
 					suffix := strings.ReplaceAll(tabName, " ", "_")
 
+					//So annoying but no nice way to do this.
+					//The Table ID and Table Class names are not the same, as the tab class and tab ID names
+					//So in order to make sure logic below works, We must manually change them. GROSS
 					if suffix == "pass_types" {
 						suffix = "passing_types"
 					}
@@ -102,13 +119,17 @@ func main() {
 					}
 
 					Table.TabName = suffix
+					//A floating goQuery for a matched table.
 					var matchedTable *goquery.Selection
 
+					//@table /w ID starting with '_stats'
 					e.DOM.Find("table[id^='stats_']").Each(func(_ int, table *goquery.Selection) {
 						id, exists := table.Attr("id")
 						if !exists {
 							return
 						}
+						//if our table attribute 'id' contains the sanatized classname 'suffix',
+						//assign matchedTable Query as table(our Each(*goquery))
 						if strings.Contains(id, suffix) {
 							matchedTable = table
 						}
@@ -117,18 +138,20 @@ func main() {
 						fmt.Printf("No table found for tab %s\n", tabName)
 						return
 					}
-
+					//@matchedTable --> Find Table head --> Table row--> get all [th] table headers
 					matchedTable.Find("thead tr").Each(func(_ int, header *goquery.Selection) {
 						var headers []string
+						//Skip the overheaders we dont need em
 						if val, _ := header.Attr("class"); val == "over_header" {
 							return
 						}
+						//
 						header.Find("th").Each(func(_ int, cell *goquery.Selection) {
 							headers = append(headers, strings.TrimSpace(cell.Text()))
 						})
 						Table.Headers = headers
 					})
-
+					//@matchedTable find the tbody --> Embeddeded Table rows --> th, td Cell data
 					matchedTable.Find("tbody tr").Each(func(_ int, row *goquery.Selection) {
 						var rowA []string
 						row.Find("th, td").Each(func(_ int, cell *goquery.Selection) {
@@ -136,11 +159,62 @@ func main() {
 						})
 						Table.Rows = append(Table.Rows, rowA)
 					})
+					//Tables slice will be appended with each table.
 					Tables = append(Tables, Table)
 				})
+				if pageData[0].Teamname == "" {
+					pageData[0].Teamname = sanatizeTitle(Teamname)
+					pageData[0].AllTables = append(pageData[0].AllTables, Tables)
+				} else if pageData[0].Teamname == sanatizeTitle(Teamname) {
+					pageData[0].AllTables = append(pageData[0].AllTables, Tables)
+				} else {
+					pageData[1].Teamname = sanatizeTitle(Teamname)
+					pageData[1].AllTables = append(pageData[1].AllTables, Tables)
+				}
+				Teamname = ""
+			},
+		},
+		{
+			Selector: "div[id^='all_keeper_stats_']",
+			Handler: func(e *colly.HTMLElement) {
+				var tables TeamTables
 
-				pageData[tablesCounter/2].AllTables = append(pageData[tablesCounter/2].AllTables, Tables)
-				tablesCounter++
+				fullTitle := strings.TrimSpace(e.DOM.Find("h2").Text())
+				tables.Title = fullTitle
+				tables.TabName = "keeper_stats"
+
+				// Extract Team Name
+				teamName := sanatizeTitle(fullTitle)
+				if pageData[keeperCounter].Teamname == "" {
+					pageData[keeperCounter].Teamname = teamName
+				}
+
+				// Find table
+				table := e.DOM.Find("table.stats_table")
+
+				// Headers
+				table.Find("thead tr").Each(func(_ int, tr *goquery.Selection) {
+					if class, _ := tr.Attr("class"); class == "over_header" {
+						return
+					}
+					tr.Find("th").Each(func(_ int, th *goquery.Selection) {
+						tables.Headers = append(tables.Headers, strings.TrimSpace(th.Text()))
+					})
+				})
+
+				// Rows
+				table.Find("tbody tr").Each(func(_ int, row *goquery.Selection) {
+					var rowData []string
+					row.Find("th, td").Each(func(_ int, cell *goquery.Selection) {
+						rowData = append(rowData, strings.TrimSpace(cell.Text()))
+					})
+					tables.Rows = append(tables.Rows, rowData)
+				})
+
+				// Save into a new table group
+				pageData[keeperCounter].AllTables = append(pageData[keeperCounter].AllTables, []TeamTables{tables})
+
+				keeperCounter++ // move after saving
 			},
 		},
 	}
@@ -161,6 +235,7 @@ func main() {
 		log.Printf("Error scraping %s : %v", testlink, err)
 	}
 
+	// After Scrape finishes, loop over the pageData slice
 	for teamIdx, team := range pageData {
 		fmt.Printf("\n========== TEAM #%d ==========\n", teamIdx+1)
 		fmt.Println("Team Name:", team.Teamname)
@@ -168,13 +243,18 @@ func main() {
 		fmt.Println("Captain Names:", strings.Join(team.CaptainNames, ", "))
 		fmt.Println("Formation:", team.Formation)
 
+		// Loop over the slices of tables for this team
 		for tableGroupIdx, tableGroup := range team.AllTables {
 			fmt.Printf("\n--- Table Group #%d ---\n", tableGroupIdx+1)
+
+			// Loop over the individual tables inside the group
 			for tableIdx, table := range tableGroup {
 				fmt.Printf("\n   --- Table #%d ---\n", tableIdx+1)
 				fmt.Println("   Title:", table.Title)
 				fmt.Println("   Tab Name:", table.TabName)
 				fmt.Println("   Headers:", strings.Join(table.Headers, ", "))
+
+				// Print each row inside the table
 				fmt.Println("   Rows:")
 				for _, row := range table.Rows {
 					fmt.Println("    ", strings.Join(row, ", "))
@@ -183,4 +263,14 @@ func main() {
 		}
 	}
 
+}
+
+func sanatizeTitle(word string) string {
+	name := strings.Fields(word)
+	if len(name) >= 2 {
+		name = name[:len(name)-3]
+	} else {
+		log.Fatal("Array out of bounds ")
+	}
+	return strings.Join(name, " ")
 }
