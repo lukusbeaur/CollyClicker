@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,Int,Tkl+Int,Clr,Err
+Luis Díaz,7,co COL,"FW,DM",28-001,74,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Curtis Jones,17,eng ENG,DM,23-350,16,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Cody Gakpo,18,nl NED,LW,25-252,90,1,0,0,1,0,0,1,0.0,1,0,0,0,0,1,1,0
+Mohamed Salah,11,eg EGY,RW,32-213,90,0,0,0,0,0,0,2,0.0,2,0,0,0,0,0,0,0
+Dominik Szoboszlai,8,hu HUN,AM,24-081,90,2,0,1,1,0,2,2,100.0,0,1,0,1,0,2,2,0
+Alexis Mac Allister,10,ar ARG,DM,26-021,90,4,3,0,3,1,3,3,100.0,0,2,1,1,0,4,1,0
+Ryan Gravenberch,38,nl NED,"DM,CB",22-243,90,0,0,0,0,0,0,0,,0,1,0,1,0,0,8,0
+Andrew Robertson,26,sct SCO,LB,30-309,64,1,0,1,0,0,1,1,100.0,0,0,0,0,0,1,4,0
+Kostas Tsimikas,21,gr GRE,LB,28-247,26,0,0,0,0,0,0,0,,0,0,0,0,0,0,2,0
+Virgil van Dijk,4,nl NED,CB,33-190,90,1,0,1,0,0,0,0,,0,0,0,0,0,1,7,0
+Ibrahima Konaté,5,fr FRA,CB,25-234,65,0,0,0,0,0,0,0,,0,0,0,0,0,0,3,0
+Diogo Jota,20,pt POR,FW,28-041,25,0,0,0,0,0,0,1,0.0,1,0,0,0,1,1,1,0
+Trent Alexander-Arnold,66,eng ENG,RB,26-099,90,1,1,1,0,0,1,3,33.3,2,1,1,0,1,2,3,0
+Alisson,1,br BRA,GK,32-104,90,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0

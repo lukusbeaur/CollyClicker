@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%
+Rasmus Højlund,9,dk DEN,"FW,AM",22-022,66,1,0,0,2,0,0,1,0,0,0,0,0,0,0,3,0.0
+Casemiro,18,br BRA,CM,33-003,24,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,
+Alejandro Garnacho,17,ar ARG,AM,20-240,44,0,0,0,0,2,0,2,0,0,0,0,0,4,0,0,
+Noussair Mazraoui,3,ma MAR,WB,27-104,46,1,0,0,0,1,0,1,0,0,0,0,0,3,1,1,50.0
+Joshua Zirkzee,11,nl NED,AM,23-280,89,1,0,0,0,3,0,0,1,2,0,0,0,4,0,3,0.0
+Christian Eriksen,14,dk DEN,AM,33-012,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0.0
+Bruno Fernandes,8,pt POR,"CM,AM",30-171,90,0,0,0,1,2,0,8,0,1,0,0,0,6,0,1,0.0
+Manuel Ugarte Ribeiro,25,uy URU,CM,23-321,90,0,0,0,2,4,0,1,1,1,0,0,0,5,0,1,0.0
+Patrick Dorgu,13,dk DEN,WB,20-123,42,0,1,0,1,2,0,3,0,1,0,0,0,2,0,0,
+Diogo Dalot,20,pt POR,WB,25-345,90,0,0,0,1,1,0,2,0,0,0,0,0,2,1,2,33.3
+Leny Yoro,15,fr FRA,CB,19-105,89,1,0,0,1,0,0,0,0,1,0,0,0,3,1,1,50.0
+Victor Lindelöf,2,se SWE,CB,30-224,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+Harry Maguire,5,eng ENG,CB,31-358,90,0,0,0,1,1,0,0,1,2,0,0,0,5,6,0,100.0
+Matthijs de Ligt,4,nl NED,CB,25-198,90,0,0,0,0,0,0,0,1,2,0,0,0,6,0,1,0.0
+André Onana,24,cm CMR,GK,28-330,90,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,100.0

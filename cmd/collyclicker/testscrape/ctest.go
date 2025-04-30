@@ -9,11 +9,27 @@ import (
 	"strings"
 	"time"
 
+	"collyclicker/internal/fileutils"
 	"collyclicker/internal/scraper"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gocolly/colly/v2"
 )
+
+type TeamTables struct {
+	teamname string
+	Title    string
+	TabName  string
+	Headers  []string
+	Rows     [][]string
+}
+type TeamData struct {
+	Teamname     string
+	CoachNames   []string
+	CaptainNames []string
+	Formation    string
+	AllTables    [][]TeamTables
+}
 
 func main() {
 	//i hate this but i need to do this for production.
@@ -23,21 +39,6 @@ func main() {
 	var datapointCounter = 0
 	var formationCounter = 0
 	var keeperCounter = 0
-
-	type TeamTables struct {
-		teamname string
-		Title    string
-		TabName  string
-		Headers  []string
-		Rows     [][]string
-	}
-	type TeamData struct {
-		Teamname     string
-		CoachNames   []string
-		CaptainNames []string
-		Formation    string
-		AllTables    [][]TeamTables
-	}
 	// Pre-allocate for two teams (Home and Away)
 	var pageData = []TeamData{{}, {}}
 
@@ -45,7 +46,7 @@ func main() {
 		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
 	)
 	c.Limit((&colly.LimitRule{
-		RandomDelay: 2 * time.Second,
+		RandomDelay: 25 * time.Second,
 		DomainGlob:  "*",
 	}))
 
@@ -227,44 +228,90 @@ func main() {
 		Debug:         true,
 	}
 
-	testlink := "https://fbref.com/en/matches/cc5b4244/Manchester-United-Fulham-August-16-2024-Premier-League"
 	s := scraper.NewCollyScraper(cfg)
 
-	err := s.Scrape(testlink)
+	// Discover all CSV files inside /links/
+	csvFiles, err := fileutils.Findcsvfiles("./links")
 	if err != nil {
-		log.Printf("Error scraping %s : %v", testlink, err)
+		log.Fatalf("Error discovering CSV files: %v", err)
 	}
 
-	// After Scrape finishes, loop over the pageData slice
-	for teamIdx, team := range pageData {
-		fmt.Printf("\n========== TEAM #%d ==========\n", teamIdx+1)
-		fmt.Println("Team Name:", team.Teamname)
-		fmt.Println("Coach Names:", strings.Join(team.CoachNames, ", "))
-		fmt.Println("Captain Names:", strings.Join(team.CaptainNames, ", "))
-		fmt.Println("Formation:", team.Formation)
+	for _, csvFile := range csvFiles {
+		fullPath := "links/" + csvFile
 
-		// Loop over the slices of tables for this team
-		for tableGroupIdx, tableGroup := range team.AllTables {
-			fmt.Printf("\n--- Table Group #%d ---\n", tableGroupIdx+1)
+		//Take CSV Folder[csvFiles] for each csvFile Found[csvFile]
+		//ReadLinks takes all lines from CSV and returns the links-->[]urls
+		links, err := fileutils.ReadLinksFromCSV(fullPath)
+		if err != nil {
+			log.Printf("Error reading links from %s: %v", csvFile, err)
+			continue
+		}
+		//Each link inside links[]URL --> Get the data for the folder and file creation.
+		for _, link := range links {
 
-			// Loop over the individual tables inside the group
-			for tableIdx, table := range tableGroup {
-				fmt.Printf("\n   --- Table #%d ---\n", tableIdx+1)
-				fmt.Println("   Title:", table.Title)
-				fmt.Println("   Tab Name:", table.TabName)
-				fmt.Println("   Headers:", strings.Join(table.Headers, ", "))
+			dateStr, err := fileutils.ExtractDateFromURL(link)
+			if err != nil {
+				log.Printf("Error extracting date from link %s: %v", link, err)
+				continue
+			}
 
-				// Print each row inside the table
-				fmt.Println("   Rows:")
-				for _, row := range table.Rows {
-					fmt.Println("    ", strings.Join(row, ", "))
+			//Start to scrape
+			log.Printf("Scraping link: %s (Date: %s)", link, dateStr)
+
+			// ---- SCRAPE ----
+			err = s.Scrape(link)
+			if err != nil {
+				log.Printf("Error scraping link %s: %v", link, err)
+				continue
+			}
+			PageDataToCSV(pageData, dateStr)
+			datapointCounter = 0
+			formationCounter = 0
+			keeperCounter = 0
+
+		}
+	}
+
+	pageData = []TeamData{{}, {}}
+}
+
+func PageDataToCSV(pageData []TeamData, dateStr string) {
+	outputDir := "output"
+
+	for _, team := range pageData {
+		if team.Teamname == "" {
+			continue
+		}
+		teamFolder := fmt.Sprintf("%s/%s_%s", outputDir, sanitizeFolderName(team.Teamname), sanitizeFolderName(dateStr))
+
+		infoHeaders := []string{"Teamname", "CoachNames", "CaptainNames", "Formation"}
+		infoRow := []string{
+			team.Teamname,
+			strings.Join(team.CoachNames, ", "),
+			strings.Join(team.CaptainNames, ", "),
+			team.Formation,
+		}
+		infoRows := [][]string{infoRow}
+
+		err := fileutils.WriteCSV(teamFolder, "team_info.csv", infoHeaders, infoRows)
+		if err != nil {
+			log.Printf("Failed to write team info for %s: %v", team.Teamname, err)
+		}
+
+		for _, tableGroup := range team.AllTables {
+			for _, table := range tableGroup {
+				fileName := fmt.Sprintf("%s_%s.csv",
+					sanitizeFileName(team.Teamname),
+					sanitizeFileName(table.TabName),
+				)
+				err := fileutils.WriteCSV(teamFolder, fileName, table.Headers, table.Rows)
+				if err != nil {
+					log.Printf("Failed to write table %s for %s: %v", table.TabName, team.Teamname, err)
 				}
 			}
 		}
 	}
-
 }
-
 func sanatizeTitle(word string) string {
 	name := strings.Fields(word)
 	if len(name) >= 2 {
@@ -273,4 +320,17 @@ func sanatizeTitle(word string) string {
 		log.Fatal("Array out of bounds ")
 	}
 	return strings.Join(name, " ")
+}
+
+// sanitizeFolderName makes a safe folder name (no spaces, etc.)
+func sanitizeFolderName(name string) string {
+	return strings.ReplaceAll(strings.TrimSpace(name), " ", "_")
+}
+
+// sanitizeFileName makes a safe file name (removes spaces and special characters)
+func sanitizeFileName(name string) string {
+	name = strings.ReplaceAll(name, " ", "_")
+	name = strings.ReplaceAll(name, "/", "-")
+	name = strings.ReplaceAll(name, "\\", "-")
+	return name
 }
