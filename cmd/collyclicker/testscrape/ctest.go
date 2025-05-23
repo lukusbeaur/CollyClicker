@@ -25,19 +25,13 @@ type TeamTables struct {
 }
 type TeamData struct {
 	Teamname     string
-	CoachNames   []string
-	CaptainNames []string
+	CoachNames   string
+	CaptainNames string
 	Formation    string
 	AllTables    [][]TeamTables
 }
 
 func main() {
-	//i hate this but i need to do this for production.
-	// We divide the counter by 2 because each team (Home/Away) has two datapoints (e.g., Manager and Captain) listed flatly.
-	// Example: counter 0/1 -> first team, counter 2/3 -> second team, etc.
-	// This keeps team data grouped correctly inside the pageData slice.
-	var datapointCounter = 0
-	var formationCounter = 0
 	var keeperCounter = 0
 	// Pre-allocate for two teams (Home and Away)
 	var pageData = []TeamData{{}, {}}
@@ -46,7 +40,7 @@ func main() {
 		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
 	)
 	c.Limit((&colly.LimitRule{
-		RandomDelay: 25 * time.Second,
+		RandomDelay: 10*time.Second + 5,
 		DomainGlob:  "*",
 	}))
 
@@ -62,11 +56,18 @@ func main() {
 				//if so --> append pageData Object slice @[handler specific counter /2] //Check logic notes above for why counter/2
 
 				if strings.HasPrefix(text, "Manager:") {
-					pageData[datapointCounter/2].CoachNames = append(pageData[datapointCounter/2].CoachNames, strings.TrimPrefix(text, "Manager:"))
+					if pageData[0].CoachNames == "" {
+						pageData[0].CoachNames = strings.TrimPrefix(text, "Manager:")
+					} else {
+						pageData[1].CoachNames = strings.TrimPrefix(text, "Manager:")
+					}
 				} else if strings.HasPrefix(text, "Captain:") {
-					pageData[datapointCounter/2].CaptainNames = append(pageData[datapointCounter/2].CaptainNames, strings.TrimPrefix(text, "Captain:"))
+					if pageData[0].CaptainNames == "" {
+						pageData[0].CaptainNames = strings.TrimPrefix(text, "Captain:")
+					} else {
+						pageData[1].CaptainNames = strings.TrimPrefix(text, "Captain:")
+					}
 				}
-				datapointCounter++
 			},
 		},
 		{
@@ -81,10 +82,13 @@ func main() {
 				if text != "Bench" {
 					match := re.FindStringSubmatch(text)
 					if len(match) > 1 {
-						pageData[formationCounter/2].Formation = match[1]
+						if pageData[0].Formation == "" {
+							pageData[0].Formation = match[1]
+						} else {
+							pageData[1].Formation = match[1]
+						}
 					}
 				}
-				formationCounter++
 			},
 		},
 		{
@@ -265,8 +269,6 @@ func main() {
 				continue
 			}
 			PageDataToCSV(pageData, dateStr)
-			datapointCounter = 0
-			formationCounter = 0
 			keeperCounter = 0
 
 		}
@@ -287,8 +289,8 @@ func PageDataToCSV(pageData []TeamData, dateStr string) {
 		infoHeaders := []string{"Teamname", "CoachNames", "CaptainNames", "Formation"}
 		infoRow := []string{
 			team.Teamname,
-			strings.Join(team.CoachNames, ", "),
-			strings.Join(team.CaptainNames, ", "),
+			team.CoachNames,
+			team.CaptainNames,
 			team.Formation,
 		}
 		infoRows := [][]string{infoRow}
