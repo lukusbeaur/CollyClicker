@@ -4,10 +4,12 @@ go 1.23.0
 
 toolchain go1.23.8
 
-require github.com/gocolly/colly/v2 v2.2.0
+require (
+	github.com/PuerkitoBio/goquery v1.10.2
+	github.com/gocolly/colly/v2 v2.2.0
+)
 
 require (
-	github.com/PuerkitoBio/goquery v1.10.2 // indirect
 	github.com/andybalholm/cascadia v1.3.3 // indirect
 	github.com/antchfx/htmlquery v1.3.4 // indirect
 	github.com/antchfx/xmlquery v1.4.4 // indirect

@@ -1,8 +1,0 @@
-{
-  "name": "Launch testscrape",
-  "type": "go",
-  "request": "launch",
-  "mode": "auto",
-  "program": "${workspaceFolder}/cmd/collyclicker/testscrape",
-  "cwd": "${workspaceFolder}" 
-}
