@@ -1,0 +1,7 @@
+1. Fix the way links.csv is written to in app.go
+Get links from table, or CSV files already saved 
+If getting links from table, Use the handler for link retrieval and then go to pinger ( check notes about fobidden below )
+Use pinger to check all the links for 200 status if works add them to working csv files
+rewrite to use passing working file inside the scraper handler functions 
+
+Why the fuck am i getting forbidden on this initial table pull to get the season links?

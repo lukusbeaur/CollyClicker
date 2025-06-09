@@ -63,11 +63,13 @@ func ExtractDateFromURL(url string) (string, error) {
 	}
 	fmt.Println("Current URL:", url)
 	for _, month := range months {
+		// Check if the month is present in the URL
 		if idx := strings.Index(url, month); idx != -1 {
 			// Get substring starting from month
 			sub := url[idx:]
 			parts := strings.Split(sub, "-")
 			if len(parts) >= 3 {
+				//
 				dateStr := fmt.Sprintf("%s-%s-%s", parts[0], parts[1], parts[2])
 				return dateStr, nil
 			}
