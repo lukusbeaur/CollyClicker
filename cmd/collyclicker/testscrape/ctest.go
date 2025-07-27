@@ -40,7 +40,7 @@ func main() {
 		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
 	)
 	c.Limit((&colly.LimitRule{
-		RandomDelay: 10*time.Second + 5,
+		RandomDelay: 10*time.Second + 7,
 		DomainGlob:  "*",
 	}))
 

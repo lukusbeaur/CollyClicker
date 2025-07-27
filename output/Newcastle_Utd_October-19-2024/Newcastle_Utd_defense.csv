@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,Int,Tkl+Int,Clr,Err
+Alexander Isak,14,se SWE,FW,25-028,90,1,0,0,0,1,1,1,100.0,0,1,0,1,0,1,0,0
+Anthony Gordon,10,eng ENG,"LW,RW",23-238,84,1,1,0,0,1,0,1,0.0,1,1,0,1,0,1,0,0
+Sean Longstaff,36,eng ENG,CM,26-355,6,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Jacob Murphy,23,eng ENG,RW,29-238,64,0,0,0,0,0,0,1,0.0,1,1,0,1,1,1,0,0
+Harvey Barnes,11,eng ENG,LW,26-315,26,0,0,0,0,0,0,0,,0,0,0,0,1,1,0,0
+Joelinton,7,br BRA,"LM,RM",28-066,90,3,3,1,1,1,2,2,100.0,0,1,0,1,3,6,1,0
+Bruno Guimarães,39,br BRA,CM,26-338,84,5,4,1,2,2,3,3,100.0,0,0,0,0,0,5,0,0
+Miguel Almirón,24,py PAR,RW,30-252,6,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Sandro Tonali,8,it ITA,RM,24-164,64,4,3,1,3,0,2,2,100.0,0,1,0,1,2,6,0,0
+Joe Willock,28,eng ENG,LM,25-060,26,1,1,0,0,1,0,0,,0,3,0,3,0,1,0,0
+Lewis Hall,20,eng ENG,LB,20-041,89,5,3,0,4,1,4,4,100.0,0,0,0,0,0,5,3,0
+William Osula,18,dk DEN,LB,21-076,1,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Dan Burn,33,eng ENG,CB,32-163,90,1,0,1,0,0,1,2,50.0,1,1,1,0,3,4,1,0
+Fabian Schär,5,ch SUI,CB,32-304,90,5,4,0,5,0,1,1,100.0,0,2,1,1,1,6,0,0
+Valentino Livramento,21,eng ENG,RB,21-342,90,0,0,0,0,0,0,0,,0,0,0,0,2,2,1,1
+Nick Pope,22,eng ENG,GK,32-183,90,0,0,0,0,0,0,0,,0,0,0,0,0,0,1,0

@@ -14,6 +14,7 @@ type csvIter struct {
 	recordNum int
 }
 
+// Opens CSV, and returns Iterator (CSV.NewReader)
 func NewCSViter(path string) (*csvIter, error) {
 	f, err := os.Open(path)
 	if err != nil {

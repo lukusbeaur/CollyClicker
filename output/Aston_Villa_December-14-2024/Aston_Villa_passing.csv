@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Jáder Durán,9,co COL,FW,21-001,73,10,9,1,0,0,0,0,0,0,0,0,0,5,0,1
+Ollie Watkins,11,eng ENG,FW,28-350,17,10,10,0,0,0,0,0,0,0,0,0,0,8,0,0
+John McGinn,7,sct SCO,LW,30-057,90,29,27,2,1,0,0,5,0,1,1,0,0,23,0,1
+Matty Cash,2,pl POL,RW,27-129,90,29,29,0,0,0,0,2,0,0,0,0,0,19,0,1
+Morgan Rogers,27,eng ENG,AM,22-141,90,26,23,3,1,0,0,0,0,0,0,0,0,20,0,1
+Youri Tielemans,8,be BEL,DM,27-221,73,27,23,4,3,0,0,1,0,1,1,0,0,23,0,1
+Amadou Onana,24,be BEL,DM,23-120,17,15,15,0,0,0,0,0,0,0,0,0,0,14,0,0
+Boubacar Kamara,44,fr FRA,DM,25-021,89,59,57,2,2,0,0,0,0,0,0,0,0,57,0,0
+Ross Barkley,6,eng ENG,DM,31-009,1,10,10,0,0,0,0,0,0,0,0,0,0,10,0,0
+Lucas Digne,12,fr FRA,LB,31-147,89,41,37,4,1,0,0,5,2,1,1,0,0,33,0,0
+Ian Maatsen,22,nl NED,LB,22-279,1,7,5,2,0,0,0,1,2,0,0,0,0,3,0,0
+Pau Torres,14,es ESP,CB,27-333,90,72,71,1,1,0,2,0,0,0,0,0,0,65,0,0
+Diego Carlos,3,br BRA,CB,31-274,90,82,77,3,1,0,0,0,0,0,0,0,0,74,2,0
+Ezri Konsa,4,eng ENG,RB,27-052,90,47,38,9,2,0,0,2,7,0,0,0,0,41,0,2
+Emiliano Martínez,23,ar ARG,GK,32-103,90,37,32,5,1,0,0,0,0,0,0,0,0,36,0,0

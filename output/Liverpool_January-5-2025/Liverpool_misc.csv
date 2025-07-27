@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%
+Luis Díaz,7,co COL,FW,27-358,60,0,0,0,0,2,0,0,0,0,0,0,0,0,0,2,0.0
+Darwin Núñez,9,uy URU,FW,25-195,30,1,0,0,1,1,0,0,0,0,0,0,0,1,0,0,
+Cody Gakpo,18,nl NED,LW,25-243,85,0,0,0,0,1,0,1,0,0,0,0,0,2,0,0,
+Harvey Elliott,19,eng ENG,LW,21-276,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+Mohamed Salah,11,eg EGY,RW,32-204,90,0,0,0,1,3,0,1,0,0,0,0,0,3,0,0,
+Curtis Jones,17,eng ENG,AM,23-341,60,0,0,0,1,1,0,0,1,0,0,0,0,1,1,0,100.0
+Diogo Jota,20,pt POR,AM,28-032,30,0,0,0,0,0,0,1,0,0,0,0,0,3,0,0,
+Alexis Mac Allister,10,ar ARG,DM,26-012,90,0,0,0,2,1,0,1,1,1,0,0,0,6,1,0,100.0
+Ryan Gravenberch,38,nl NED,DM,22-234,90,0,0,0,2,1,0,1,0,0,0,0,0,5,1,2,33.3
+Andrew Robertson,26,sct SCO,LB,30-300,90,0,0,0,1,0,0,6,3,1,0,0,0,1,0,1,0.0
+Virgil van Dijk,4,nl NED,CB,33-181,90,0,0,0,0,0,0,0,2,0,0,0,0,4,0,2,0.0
+Ibrahima Konaté,5,fr FRA,CB,25-225,90,0,0,0,0,1,0,0,3,0,0,0,0,6,7,1,87.5
+Trent Alexander-Arnold,66,eng ENG,RB,26-090,85,1,0,0,2,0,0,6,4,0,0,0,0,8,0,0,
+Conor Bradley,84,nir NIR,RB,21-180,5,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,
+Alisson,1,br BRA,GK,32-095,90,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,100.0

@@ -5,3 +5,15 @@ Use pinger to check all the links for 200 status if works add them to working cs
 rewrite to use passing working file inside the scraper handler functions 
 
 Why the fuck am i getting forbidden on this initial table pull to get the season links?
+
+
+2. 6/10 - When I have multiple sources of links, say different seasons with same tables, figure out how to 
+manage files of CSVs. Ex it pulls table links from 2025 season, saves it in links.csv. Then a pinger checks all links and adds 
+it to pass or fail csv. 
+-How do we manage old links we want to save, or new links on different season. Maybe we some how add the date of the season 
+to the links? 
+- how do we manage the missing data from the failed links
+
+
+3.6/12 Checking the data that is missing, I am missing 
+Current URL: https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League - missing brighton and hove albian 

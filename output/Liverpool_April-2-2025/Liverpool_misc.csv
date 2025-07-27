@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%
+Diogo Jota,20,pt POR,FW,28-119,74,1,0,0,1,0,0,1,0,2,0,0,0,1,0,0,
+Darwin Núñez,9,uy URU,FW,25-282,16,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0,
+Luis Díaz,7,co COL,LW,28-079,85,0,0,0,1,1,0,5,0,1,0,0,0,4,0,2,0.0
+Cody Gakpo,18,nl NED,LW,25-330,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0.0
+Mohamed Salah,11,eg EGY,RW,32-291,89,0,0,0,0,0,1,3,0,0,0,0,0,1,1,3,25.0
+Wataru Endo,3,jp JPN,RW,32-052,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0.0
+Dominik Szoboszlai,8,hu HUN,AM,24-159,90,0,0,0,0,2,1,2,0,0,0,0,0,2,0,2,0.0
+Alexis Mac Allister,10,ar ARG,DM,26-099,90,0,0,0,1,2,0,12,0,1,0,0,0,6,0,4,0.0
+Ryan Gravenberch,38,nl NED,DM,22-321,90,0,0,0,0,1,0,1,2,0,0,0,0,7,2,1,66.7
+Andrew Robertson,26,sct SCO,LB,31-022,90,0,0,0,0,1,0,6,1,0,0,0,0,0,0,0,
+Virgil van Dijk,4,nl NED,CB,33-268,90,0,0,0,2,2,0,0,4,1,0,0,0,1,6,4,60.0
+Ibrahima Konaté,5,fr FRA,CB,25-312,90,0,0,0,0,0,0,0,0,0,0,0,0,6,3,5,37.5
+Curtis Jones,17,eng ENG,RB,24-062,90,0,0,0,1,0,0,0,1,0,0,0,0,6,2,1,66.7
+Caoimhín Kelleher,62,ie IRL,GK,26-130,90,0,0,0,0,2,0,0,0,0,0,0,0,1,0,0,

@@ -16,7 +16,6 @@ func Findcsvfiles(path string) ([]string, error) {
 	//does a CSV file exist at the path)
 	csvLists := []string{}
 	entries, err := os.ReadDir(path)
-
 	if err != nil {
 		return nil, err
 	}

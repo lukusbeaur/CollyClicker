@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Diogo Jota,20,pt POR,FW,27-299,90,26,25,0,0,0,0,1,0,0,0,0,0,18,1,1
+Luis Díaz,7,co COL,LW,27-259,72,28,27,1,1,0,0,1,0,0,0,0,0,24,0,0
+Cody Gakpo,18,nl NED,LW,25-144,18,9,9,0,0,0,1,1,0,0,0,0,0,7,0,0
+Mohamed Salah,11,eg EGY,RW,32-105,90,29,28,1,1,0,0,2,0,0,0,0,0,19,0,2
+Dominik Szoboszlai,8,hu HUN,AM,23-339,72,31,29,2,0,0,0,0,0,0,0,0,0,26,0,0
+Curtis Jones,17,eng ENG,AM,23-242,18,7,7,0,0,0,0,1,0,0,0,0,0,4,0,0
+Alexis Mac Allister,10,ar ARG,DM,25-279,90,48,47,1,1,0,0,1,0,0,0,0,0,41,0,1
+Ryan Gravenberch,38,nl NED,DM,22-135,90,62,61,1,1,0,0,0,0,0,0,0,0,57,0,0
+Andrew Robertson,26,sct SCO,LB,30-201,88,80,64,16,1,0,0,9,7,8,4,2,0,66,0,1
+Joe Gomez,2,eng ENG,LB,27-128,2,3,3,0,0,0,0,0,0,0,0,0,0,3,0,0
+Virgil van Dijk,4,nl NED,CB,33-082,90,86,79,6,3,0,1,0,0,0,0,0,0,79,1,0
+Ibrahima Konaté,5,fr FRA,CB,25-126,90,67,66,1,1,0,0,0,0,0,0,0,0,59,0,0
+Trent Alexander-Arnold,66,eng ENG,RB,25-357,90,66,53,13,4,0,1,5,7,2,1,1,0,46,0,1
+Alisson,1,br BRA,GK,31-362,90,32,28,4,2,0,0,0,0,0,0,0,0,27,0,0

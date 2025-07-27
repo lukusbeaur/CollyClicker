@@ -11,10 +11,8 @@ import (
 // It ensures the directory exists, creates the file, and writes the data.
 func WriteCSV(folderPath, fileName string, headers []string, rows [][]string) error {
 	// Print working directory for context
-	cwd, err := os.Getwd()
-	if err == nil {
-		log.Printf("📁 Current Working Directory: %s", cwd)
-	} else {
+	_, err := os.Getwd()
+	if err != nil {
 		log.Printf("⚠️ Failed to get working directory: %v", err)
 	}
 
@@ -40,13 +38,12 @@ func WriteCSV(folderPath, fileName string, headers []string, rows [][]string) er
 		return err
 	}
 
-	// Write all the rows
 	for _, row := range rows {
 		if err := writer.Write(row); err != nil {
 			return err
 		}
 	}
 
-	log.Printf("✅ CSV written: %s", fullPath)
+	//log.Printf("✅ CSV written: %s", fullPath)
 	return nil
 }

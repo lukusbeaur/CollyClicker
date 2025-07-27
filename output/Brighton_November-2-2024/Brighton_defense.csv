@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,Int,Tkl+Int,Clr,Err
+Danny Welbeck,18,eng ENG,"FW,AM",33-342,90,0,0,0,0,0,0,1,0.0,1,2,0,2,0,0,1,0
+Georginio Rutter,14,fr FRA,"FW,AM",22-196,90,1,1,0,1,0,0,0,,0,0,0,0,0,1,5,0
+Kaoru Mitoma,22,jp JPN,LM,27-166,86,1,1,0,0,1,0,1,0.0,1,1,0,1,0,1,0,0
+Simon Adingra,11,ci CIV,"WB,LM",22-306,4,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Yasin Ayari,26,se SWE,CM,21-027,75,4,2,1,2,1,3,3,100.0,0,1,0,1,3,7,2,0
+Mats Wieffer,27,nl NED,CM,24-352,15,2,1,0,2,0,1,2,50.0,1,0,0,0,0,2,0,0
+Jack Hinshelwood,41,eng ENG,CM,19-205,87,2,2,1,1,0,0,0,,0,0,0,0,0,2,1,0
+Evan Ferguson,28,ie IRL,FW,20-014,3,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Ferdi Kadioglu,24,tr TUR,"RM,RB",25-026,86,3,2,0,3,0,2,3,66.7,1,2,2,0,0,3,4,0
+Jakub Moder,15,pl POL,"CM,RB",25-209,4,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Pervis Estupiñán,30,ec ECU,"LB,CB",26-286,90,3,3,3,0,0,1,1,100.0,0,0,0,0,3,6,5,0
+Igor,3,br BRA,CB,26-269,90,0,0,0,0,0,0,0,,0,3,1,2,1,1,2,0
+Jan Paul van Hecke,29,nl NED,CB,24-147,90,1,1,1,0,0,0,0,,0,2,2,0,0,1,3,0
+Joël Veltman,34,nl NED,RB,32-292,75,0,0,0,0,0,0,2,0.0,2,1,1,0,2,2,1,0
+Brajan Gruda,8,de GER,"RM,WB",20-155,15,1,0,0,1,0,1,2,50.0,1,0,0,0,0,1,1,0
+Bart Verbruggen,1,nl NED,GK,22-076,90,0,0,0,0,0,0,1,0.0,1,0,0,0,0,0,2,0

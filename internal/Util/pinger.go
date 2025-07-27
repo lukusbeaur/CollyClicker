@@ -1,16 +1,15 @@
 package Util
 
 import (
+	"collyclicker/internal/fileutils"
 	"encoding/csv"
 	"fmt"
 	"os"
-
-	"collyclicker/internal/fileutils"
 )
 
+// Take CSV file, open it. Create new CSV reader. Each URL is sent to sping.go checking for Status 200
+// If status 200 -> write string to pass.csv If status != 200 -> write string to fail.csv
 func CheckURL(file string) {
-	var pass []string
-	var fail []string
 	f, err := os.Open(file)
 	if err != nil {
 		panic(err)
@@ -34,14 +33,11 @@ func CheckURL(file string) {
 		} else if code == 200 {
 			fmt.Printf("Code:%d \n Link: %s\n", code, row)
 			//fail = append(pass, row)
-			fileutils.WriteLineCSV("pass_CSV.csv", []string{row})
+			fileutils.WriteLineCSV("links/scrapeReady/pass_CSV.csv", []string{row})
 		} else {
 			fmt.Printf("Code:%d \n Link: %s\n", code, row)
 			//pass = append(fail, row)
-			fileutils.WriteLineCSV("fail_CSV.csv", []string{row})
+			fileutils.WriteLineCSV("links/fail_CSV.csv", []string{row})
 		}
 	}
-	fileutils.WriteCSVsingle("fail_CSV.csv", fail)
-	fileutils.WriteCSVsingle("pass_CSV.csv", pass)
-
 }

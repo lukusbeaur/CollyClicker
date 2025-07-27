@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Alexander Isak,14,se SWE,FW,25-207,71,6,5,1,0,0,0,1,0,0,0,0,0,4,0,1
+Callum Wilson,9,eng ENG,FW,33-048,19,2,2,0,0,0,0,0,0,0,0,0,0,1,0,0
+Harvey Barnes,11,eng ENG,"LW,RW",27-128,90,32,31,1,0,0,0,0,1,0,0,0,0,24,0,2
+Jacob Murphy,23,eng ENG,RW,30-051,61,17,17,0,0,0,0,4,0,0,0,0,0,10,0,1
+Anthony Gordon,10,eng ENG,LW,24-051,29,11,10,1,1,0,0,0,0,0,0,0,0,11,0,0
+Joelinton,7,br BRA,LM,28-245,61,26,25,1,1,0,0,0,0,0,0,0,0,21,0,0
+Joe Willock,28,eng ENG,LM,25-239,29,12,12,0,0,0,0,1,0,0,0,0,0,8,0,1
+Sandro Tonali,8,it ITA,CM,24-343,90,76,74,2,1,0,1,1,1,0,0,0,0,65,0,1
+Bruno Guimarães,39,br BRA,RM,27-151,71,32,31,1,1,0,0,0,0,0,0,0,0,29,0,0
+Sean Longstaff,36,eng ENG,RM,27-168,19,11,11,0,0,0,0,0,0,0,0,0,0,10,0,1
+Valentino Livramento,21,eng ENG,LB,22-155,90,61,53,7,1,0,0,1,6,0,0,0,0,54,1,2
+Dan Burn,33,eng ENG,CB,32-342,90,84,84,0,0,0,0,0,0,0,0,0,0,72,0,0
+Fabian Schär,5,ch SUI,CB,33-117,90,89,88,0,0,0,0,0,0,0,0,0,0,77,1,1
+Kieran Trippier,2,eng ENG,RB,34-209,78,66,50,16,4,0,0,4,7,5,2,2,0,53,0,4
+Emil Krafth,17,se SWE,RB,30-257,12,13,13,0,0,0,0,0,0,0,0,0,0,12,0,0
+Nick Pope,22,eng ENG,GK,32-362,90,37,26,11,7,0,0,0,0,0,0,0,0,30,0,0

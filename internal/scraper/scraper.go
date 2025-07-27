@@ -1,6 +1,9 @@
 package scraper
 
 import (
+	"collyclicker/internal/Util"
+	"log/slog"
+
 	colly "github.com/gocolly/colly/v2"
 )
 
@@ -22,6 +25,7 @@ type CollyScraper struct {
 // Input all HTML elements at once, defining the link handlers up front
 // 1 Scrape multiple elements
 type SelectorHandler struct {
+	Name     string
 	Selector string
 	Handler  func(e *colly.HTMLElement)
 }
@@ -31,7 +35,8 @@ type SelectorHandler struct {
 // cfg := &ScraperConfig{Collector: colly.NewCollector(), ...}
 // s := scraper.NewCollyScraper(cfg)
 func NewCollyScraper(cfg *ScraperConfig) *CollyScraper {
-
+	Util.Logger.Debug("Calling New CollyScraper",
+		slog.String("Functions", "scraper.go - NewCollyScrapper"))
 	for _, sh := range cfg.LinkSelectors {
 		cfg.Collector.OnHTML(sh.Selector, sh.Handler)
 	}

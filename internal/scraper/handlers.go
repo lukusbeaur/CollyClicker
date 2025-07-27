@@ -29,18 +29,22 @@ type TeamData struct {
 func GetSelectorHandlers(pageData *[]TeamData, keeperCounter *int, fbref *[]string) []SelectorHandler {
 	return []SelectorHandler{
 		{
+			Name:     "Coach and Captian",
 			Selector: "div.datapoint",
 			Handler:  CapManHandler(pageData),
 		},
 		{
+			Name:     "Line up",
 			Selector: "div.lineup th[colspan]",
 			Handler:  lineupHandler(pageData),
 		},
 		{
+			Name:     "Player Stats",
 			Selector: "div[id^='all_player_stats']",
 			Handler:  playerStatsHandler(pageData),
 		},
 		{
+			Name:     "Keeper Stats",
 			Selector: "div[id^='all_keeper_stats_']",
 			Handler:  keeperStatsHandler(pageData, keeperCounter),
 		},
@@ -139,12 +143,20 @@ func playerStatsHandler(pageData *[]TeamData) func(e *colly.HTMLElement) {
 		})
 		if (*pageData)[0].Teamname == "" {
 			(*pageData)[0].Teamname = sanatizeTitle(Teamname)
-			(*pageData)[0].AllTables = append((*pageData)[0].AllTables, Tables)
+			if len((*pageData)[0].AllTables) == 0 {
+				(*pageData)[0].AllTables = append((*pageData)[0].AllTables, Tables)
+			}
+
 		} else if (*pageData)[0].Teamname == sanatizeTitle(Teamname) {
-			(*pageData)[0].AllTables = append((*pageData)[0].AllTables, Tables)
+			if len((*pageData)[0].AllTables) == 0 {
+				(*pageData)[0].AllTables = append((*pageData)[0].AllTables, Tables)
+			}
 		} else {
 			(*pageData)[1].Teamname = sanatizeTitle(Teamname)
-			(*pageData)[1].AllTables = append((*pageData)[1].AllTables, Tables)
+			if len((*pageData)[1].AllTables) == 0 {
+				(*pageData)[1].AllTables = append((*pageData)[1].AllTables, Tables)
+			}
+
 		}
 	}
 }

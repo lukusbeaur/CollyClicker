@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,Int,Tkl+Int,Clr,Err
+Kai Havertz,29,de GER,FW,25-081,90,0,0,0,0,0,0,0,,0,1,1,0,0,0,2,1
+Leandro Trossard,19,be BEL,"LW,LM",29-271,58,1,1,0,1,0,0,1,0.0,1,2,0,2,1,2,0,0
+Riccardo Calafiori,33,it ITA,"LB,CB",22-104,32,0,0,0,0,0,0,0,,0,0,0,0,0,0,2,0
+Bukayo Saka,7,eng ENG,"RW,CM,RM",22-361,90,2,1,2,0,0,2,4,50.0,2,3,0,3,0,2,1,0
+Declan Rice,41,eng ENG,LM,25-230,48,0,0,0,0,0,0,0,,0,1,0,1,0,0,0,0
+Thomas Partey,5,gh GHA,CM,31-079,90,1,1,0,0,1,1,3,33.3,2,3,2,1,5,6,0,0
+Martin Ødegaard,8,no NOR,"RM,CM",25-258,73,2,1,1,1,0,0,1,0.0,1,0,0,0,0,2,0,0
+Gabriel Martinelli,11,br BRA,CM,23-074,17,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Jurriën Timber,12,nl NED,"LB,CB,RB",23-075,79,2,2,1,1,0,1,1,100.0,0,1,1,0,1,3,3,0
+Oleksandr Zinchenko,17,ua UKR,LB,27-260,11,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Gabriel Magalhães,6,br BRA,CB,26-256,90,1,1,0,1,0,1,2,50.0,1,2,2,0,1,2,4,0
+William Saliba,2,fr FRA,CB,23-160,90,5,2,3,2,0,4,4,100.0,0,1,1,0,2,7,2,0
+Ben White,4,eng ENG,"RB,CB",26-328,90,3,2,1,1,1,3,6,50.0,3,2,1,1,2,5,6,0
+David Raya,22,es ESP,GK,28-351,90,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
