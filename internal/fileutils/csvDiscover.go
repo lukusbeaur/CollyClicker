@@ -74,5 +74,6 @@ func ExtractDateFromURL(url string) (string, error) {
 			}
 		}
 	}
-	return "", fmt.Errorf("no date found in URL")
+	//Log an error in App if no date is found
+	return "", nil
 }

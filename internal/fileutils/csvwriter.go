@@ -2,7 +2,6 @@ package fileutils
 
 import (
 	"encoding/csv"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -13,7 +12,9 @@ func WriteCSV(folderPath, fileName string, headers []string, rows [][]string) er
 	// Print working directory for context
 	_, err := os.Getwd()
 	if err != nil {
-		log.Printf("⚠️ Failed to get working directory: %v", err)
+		return err
+		// Log this in APP logger not here.
+		//log.Printf("⚠️ Failed to get working directory: %v", err)
 	}
 
 	// Make sure the folder exists

@@ -19,6 +19,7 @@ import (
 
 var dirName_unready = "links/"
 var dirname_ready = dirName_unready + "scrapeReady/"
+var tempFilePath string
 
 func Run() error {
 	start := time.Now()
@@ -65,6 +66,7 @@ func Run() error {
 		})
 
 	})
+	// This is used to get all links from the main schedule page
 	err := c.Visit("https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures")
 	if err != nil {
 		Util.Logger.Error("Could not connect to the link provided",
@@ -135,7 +137,30 @@ func Run() error {
 				continue
 			}
 			url := row[0]
-
+			// Caching URL and file name
+			curCache := &Util.TrackCache{
+				CurrentURL:  url,
+				CurrentFile: record,
+				Index:       0,
+				Sport:       "Soccer",
+			}
+			//Start Caching current links and URLS
+			// Create a temporary directory / file for caching by sport handler
+			tempFilePath, err = Util.CreateTempFile(*curCache)
+			if err != nil {
+				Util.Logger.Error("Error creating temporary file for caching",
+					slog.String("Location", "app.go - Range csvArray loop -> inside For loop"),
+					slog.Any("Error", err))
+				continue
+			}
+			//truncate the temporary file to ensure it's empty before writing
+			err = Util.TruncateTmpFile(*curCache)
+			if err != nil {
+				Util.Logger.Error("Error truncating temporary file for caching",
+					"Error", err,
+					"Location", "app.go - Range csvArray loop -> inside For loop")
+				continue
+			}
 			// --- Add scraping state ---
 			keeperCounter := 0
 			pageData := []scraper.TeamData{{}, {}}
@@ -166,6 +191,7 @@ func Run() error {
 					"status", r.StatusCode,
 					"err", err,
 				)
+
 			})
 
 			// --- Get handlers ---
@@ -238,7 +264,7 @@ func Run() error {
 		"Total Duration", elapsed)
 
 	//Delete all temp files inside Temp DIR
-	err = os.Remove(os.TempDir())
+	err = os.Remove(tempFilePath)
 	if err != nil {
 		slog.Error("Error Deleting Temp DIR. Consider checking your Temp folder for manual deletion",
 			"Error", err,
