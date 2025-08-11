@@ -1,7 +1,6 @@
 package Util
 
 import (
-	"bufio"
 	"collyclicker/internal/fileutils"
 	"fmt"
 	"os"
@@ -10,6 +9,7 @@ import (
 
 type TrackCache struct {
 	Sport       string //sport type
+	CacheType   string // type of cache (e.g. "retry", "last")
 	CurrentURL  string
 	CurrentFile string
 	Index       int //Where in the current file is the current URL
@@ -57,8 +57,8 @@ func CreateTempFile(tc TrackCache) (string, error) {
 }
 */
 
-func OpenTempFile(name string) (*os.File, error) {
-	path := filepath.Join(os.TempDir(), name)
+func OpenTempFile(tc TrackCache) (*os.File, error) {
+	path := filepath.Join(os.TempDir(), tc.Sport)
 	return os.Open(path)
 }
 
@@ -74,7 +74,7 @@ func TruncateTmpFile(tc TrackCache) error {
 		return err
 	}
 	defer f.Close()
-	last := fmt.Sprintf("%s,%s", tc.CurrentFile, tc.CurrentURL)
+	last := fmt.Sprintf("%s,%s%d", tc.CurrentFile, tc.CurrentURL, tc.Index)
 
 	f.WriteString(last)
 	return err
@@ -82,7 +82,7 @@ func TruncateTmpFile(tc TrackCache) error {
 
 // GetIndex retrieves the index of a specific link in a file.
 // it Returns the index of the link if found, otherwise returns -1.
-func GetIndex(tc TrackCache) int {
+/*func GetIndex(tc TrackCache) int {
 	//instatiate tc.index
 	tc.Index = 0
 	f, err := os.Open(tc.CurrentFile)
@@ -90,7 +90,7 @@ func GetIndex(tc TrackCache) int {
 		/*Logger.Error("Error opening file for index retreival",
 		"Error", err,
 		"Location", "cache.go GetIndex")
-		*/
+
 		return -1
 	}
 	defer f.Close()
@@ -108,13 +108,14 @@ func GetIndex(tc TrackCache) int {
 			Logger.Error("Error reading file/lines for index retreival",
 				"Error", err,
 				"Location", "cache.go GetIndex")
-			return -1*/
+			return -1
 	}
 	return -1
 }
+*/
 
 func AddToRetryCache(file string, url string) error {
-	retryPath := "ScrapeReady/retryCache.csv"
+	retryPath := "sapeReady/retryCache.csv"
 	return fileutils.WriteLineCSV(retryPath, []string{file, url})
 }
 

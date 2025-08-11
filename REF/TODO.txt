@@ -1,0 +1,321 @@
+# TODO: Refactor app.go for Per-Sport Configuration and Handlers
+
+## 1. Create a Configuration File for Each Sport
+- Create a configuration file for each sport (e.g., `soccerCfg.go` or `soccerCfg.txt`).
+- The configuration file should define:
+  - Sport-specific settings (e.g., user agent, allowed domains, delays).
+  - Handlers and selectors for scraping.
+
+### Example: soccerCfg.go
+- Define a function that returns a `ScraperConfig` for soccer:
+```go
+package soccer
+
+import (
+    "collyclicker/internal/scraper"
+    "github.com/gocolly/colly/v2"
+)
+
+func GetSoccerConfig() *scraper.ScraperConfig {
+    return &scraper.ScraperConfig{
+        Collector: colly.NewCollector(
+            colly.AllowedDomains("fbref.com"),
+            colly.Async(false),
+            colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+        ),
+        LinkSelectors: []scraper.LinkSelector{
+            {Selector: "td[data-stat='score']", Handler: SoccerScoreHandler},
+        },
+        OnRequest: func(r *colly.Request) {
+            r.Headers.Set("Referer", "https://fbref.com/")
+            r.Headers.Set("Accept-Language", "en-US,en;q=0.9")
+        },
+        OnError: func(r *colly.Response, err error) {
+            // Handle errors
+        },
+    }
+}
+
+func SoccerScoreHandler(e *colly.HTMLElement) {
+    // Soccer-specific handler logic
+}
+```
+
+---
+
+## 2. Refactor app.go to Use Sport-Specific Configurations
+- Replace the hardcoded logic in `app.go` with a loop that loads configurations dynamically for each sport.
+
+### Steps:
+1. Create a map of sport names to configuration functions:
+```go
+var sportConfigs = map[string]func() *scraper.ScraperConfig{
+    "soccer": soccer.GetSoccerConfig,
+    // Add more sports here
+}
+```
+
+2. Loop through the sports and apply their configurations:
+```go
+for sport, getConfig := range sportConfigs {
+    Util.Logger.Info("Processing sport", "sport", sport)
+
+    cfg := getConfig()
+    scraperInstance := scraper.NewCollyScraper(cfg)
+
+    for _, url := range urls {
+        err := scraperInstance.Scrape(url)
+        if err != nil {
+            Util.Logger.Error("Error scraping URL", "sport", sport, "URL", url, "Error", err)
+            continue
+        }
+    }
+}
+```
+
+---
+
+## 3. Move Handlers to Sport-Specific Files
+- Each sport should have its own file for handlers and selectors (e.g., `soccerHandlers.go`).
+- Example:
+```go
+package soccer
+
+import "github.com/gocolly/colly/v2"
+
+func SoccerScoreHandler(e *colly.HTMLElement) {
+    // Soccer-specific scraping logic
+}
+```
+
+---
+
+## 4. Simplify app.go
+- Remove all sport-specific logic from `app.go`.
+- `app.go` should only:
+  1. Load configurations for each sport.
+  2. Loop through URLs and call `Scrape`.
+
+---
+
+## 5. Add a Configuration Loader for Text Files (Optional)
+- If you prefer `.txt` or `.json` files for configurations:
+  1. Create a `configLoader.go` utility to parse the files.
+  2. Example:
+```go
+func LoadConfigFromFile(filePath string) (*scraper.ScraperConfig, error) {
+    // Parse the file and return a ScraperConfig
+}
+```
+  3. Replace `sportConfigs` with a map of file paths:
+```go
+var sportConfigFiles = map[string]string{
+    "soccer": "configs/soccerCfg.json",
+    // Add more sports here
+}
+```
+  4. Load configurations dynamically:
+```go
+for sport, filePath := range sportConfigFiles {
+    cfg, err := LoadConfigFromFile(filePath)
+    if err != nil {
+        Util.Logger.Error("Error loading config", "sport", sport, "file", filePath, "Error", err)
+        continue
+    }
+    scraperInstance := scraper.NewCollyScraper(cfg)
+    // Scrape logic
+}
+```
+
+---
+
+## 6. Test the Refactored Code
+- Ensure that:
+  - Each sport's configuration is loaded correctly.
+  - Handlers are applied properly.
+  - Logging works as expected.
+
+---
+
+## 7. Clean Up and Document
+- Add comments to the new files and functions.
+- Update any README or documentation to reflect the new structure.
+
+---
+
+# Final Structure
+- `app.go`: High-level logic for loading configurations and scraping.
+- `configs/`: Directory for sport-specific configuration files (if using `.txt` or `.json`).
+- `internal/soccer/`: Directory for soccer-specific logic (e.g., `soccerCfg.go`, `soccerHandlers.go`).
+- `internal/scraper/`: Core scraper logic (e.g., `ScraperConfig`, `NewCollyScraper`).
+
+---
+
+# Benefits of Refactoring
+1. **Modularity:** Each sport has its own configuration and handlers.
+2. **Maintainability:** Adding a new sport only requires creating a new configuration file and handlers.
+3. **Readability:** `app.go` becomes much cleaner and easier to understand.
+4. **Reusability:** The `scraper.go` module can be reused for other projects.
+
+---
+
+# Estimated Effort
+- **Refactor `scraper.go`:** 1-2 hours
+- **Create sport-specific files (e.g., `soccerCfg.go`):** 2-3 hours
+- **Update `app.go`:** 2-3 hours
+- **Testing and debugging:** 2-4 hours
+- **Total:** ~7-12 hours
+
+
+
+TODO 2 — Add the hostGate + non-blocking retry
+Keep your current OnError 429 parser, but don’t time.Sleep inside it when Retry-After is large.
+
+Instead, set a gate for that host and schedule the retry in a goroutine so other domains keep moving.
+
+go
+Copy
+Edit
+var hostGate sync.Map // host -> time.Time
+
+func scheduleRetry(c *colly.Collector, url string, next time.Time, baseCtx *colly.Context, nextRetry int) {
+    go func() {
+        time.Sleep(time.Until(next))
+        ctx := colly.NewContext()
+        ctx.Put("retryCount", nextRetry)
+        _ = c.Request("GET", url, nil, ctx, nil)
+    }()
+}
+
+// In OnError 429 branch, after you compute `wait`:
+next := time.Now().Add(wait)
+hostGate.Store(r.Request.URL.Host, next)
+scheduleRetry(c, r.Request.URL.String(), next, r.Ctx, retryCount+1)
+return // do not block with Sleep; do not Retry() immediately
+And in OnRequest:
+
+go
+Copy
+Edit
+c.OnRequest(func(r *colly.Request) {
+    // ensure retryCount exists (prevents panic)
+    if _, ok := r.Ctx.GetAny("retryCount").(int); !ok {
+        r.Ctx.Put("retryCount", 0)
+    }
+    // honor host gate
+    if v, ok := hostGate.Load(r.URL.Host); ok {
+        if until := v.(time.Time); time.Now().Before(until) {
+            time.Sleep(time.Until(until)) // quick wait only if we arrive early
+        }
+    }
+})
+Effort: 1–2 hours (drop-in + test that Domain A waits while Domain B continues).
+
+TODO 3 — Dead-letter on give-up (per domain file)
+Log exhausted URLs to a file per domain so you can re-queue later.
+
+go
+Copy
+Edit
+func append429(path, url string, status, retries int, next time.Time) { /* your helper */ }
+
+// In 429 branch:
+if retryCount >= maxRetries {
+    var nextAt time.Time
+    if v, ok := hostGate.Load(r.Request.URL.Host); ok { nextAt = v.(time.Time) }
+    fname := "errors_429_" + r.Request.URL.Host + ".csv"
+    append429(fname, r.Request.URL.String(), r.StatusCode, retryCount, nextAt)
+    return
+}
+Effort: 30–45 minutes.
+
+Better architecture (clean split by sport/domain)
+If you want clean separation and per-domain tuning, create one collector per domain, each with its own gate, cookies, and retry policy. A tiny manager spins them up concurrently.
+
+go
+Copy
+Edit
+type DomainCrawler struct {
+    Host     string
+    C        *colly.Collector
+    HostGate sync.Map
+    MaxRetries int
+}
+
+func NewDomainCrawler(host string, parallel int, min, rand time.Duration) *DomainCrawler {
+    c := colly.NewCollector(colly.Async(true))
+    c.Limit(&colly.LimitRule{
+        DomainGlob:  "*." + host,
+        Parallelism: parallel,
+        Delay:       min,
+        RandomDelay: rand,
+    })
+    dc := &DomainCrawler{Host: host, C: c, MaxRetries: 5}
+    // wire OnRequest, OnError(429) using dc.HostGate and scheduleRetry(dc.C, ...)
+    return dc
+}
+
+type CrawlManager struct {
+    Crawlers map[string]*DomainCrawler // key: host
+}
+
+func (m *CrawlManager) StartAll() {
+    for _, dc := range m.Crawlers {
+        go dc.C.Wait()
+    }
+}
+You then seed each domain’s URLs into its own collector. A 429 on fbref won’t affect basketball-reference, etc.
+
+Effort: 6–10 hours for first pass (refactor + tests).
+
+Optional: use Colly queues per domain
+If you want persistence and controlled concurrency per domain, add queue.Queue per domain:
+
+go
+Copy
+Edit
+q, _ := queue.New(
+    2, // number of consumer threads for this domain
+    &queue.InMemoryQueueStorage{MaxSize: 10000},
+)
+q.AddURL("https://fbref.com/...")
+q.Run(dc.C) // runs with that domain’s collector and handlers
+Each domain gets its own queue and consumer count. Your scheduleRetry can q.AddURL(url) after time.Sleep instead of calling collector.Request.
+
+Effort: +1–2 hours on top of the DomainCrawler split.
+
+Concurrency & correctness checklist
+ Async(true) enabled.
+
+ One LimitRule per domain with its own Parallelism and delays.
+
+ hostGate respected in OnRequest (per collector or keyed by host if using one collector).
+
+ OnError 429 path:
+
+ Parse Retry-After
+
+ Compute wait = retryAfter + backoff + jitter
+
+ hostGate.Store(host, next)
+
+ Non-blocking scheduleRetry(...) and return
+
+ Dead-letter when retryCount >= maxRetries
+
+ retryCount initialized in OnRequest (defensive).
+
+ Cookie jar enabled per domain if you need session continuity.
+
+ Logging shows domain/host, retryCount, wait, nextAllowed.
+
+Effort estimates (realistic)
+Minimal change path (single collector; per-domain LimitRules; hostGate; non-blocking retry): 2–4 hours including testing against two domains.
+
+DomainCrawler refactor (one collector/queue per domain): 6–10 hours for clean implementation, plus 2–3 hours of soak tests.
+
+Persistent queue (BoltDB) and resume on restart: +4–6 hours.
+====================================================================================
+
+Add To Retry Cache should be dynamically set to the sport name and cache type and placed inside 
+the tmp file. For now i am going to use retrycache.csv because we are using 1 sport 
