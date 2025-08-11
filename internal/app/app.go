@@ -87,7 +87,10 @@ func Run() error {
 			slog.Any("dirname_ready", dirname_ready),
 			slog.Any("Error", err))
 	}
+	//Open temp file retrieve URL, File and Index
 
+	//write if statement to check if record == filename if not continue
+	// use index to start from the right place in the file
 	//Take array of CSV file names, and open one at a time.
 	for _, record := range csvArray {
 		Util.Logger.Debug("Reading CSVs from csvarray. Array created from findcsvfiles.",
