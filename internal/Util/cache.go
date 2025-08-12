@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 )
 
 type TrackCache struct {
@@ -62,7 +63,38 @@ func OpenTempFile(tc TrackCache) (*os.File, error) {
 	return os.Open(path)
 }
 
-// TruncateTmpFile truncates the temporary file to only contain the Last url and file name
+func OpenTempFileString(sport string) ([]string, error) {
+	// Create the path to the temp file "tmp/CollyClicker/Sport"
+	path := filepath.Join(os.TempDir(), "CollyClicker", sport)
+
+	// Attempt to open the temp file
+	file, err := os.Open(path)
+	if err != nil {
+		if os.IsNotExist(err) {
+			// Return an empty slice and no error to indicate starting fresh
+			return []string{}, nil
+		}
+		// Log the error and return an empty slice with the error
+		return []string{}, fmt.Errorf("error opening temp file at path %s: %w", path, err)
+	}
+	defer file.Close()
+
+	// Read the file contents
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return []string{}, fmt.Errorf("error reading temp file at path %s: %w", path, err)
+	}
+
+	// Parse the file contents (assuming "fileName,url,index" format)
+	parts := strings.Split(string(data), ",")
+	if len(parts) != 3 {
+		return []string{}, fmt.Errorf("invalid temp file format: expected 3 parts, got %d", len(parts))
+	}
+
+	return parts, nil
+}
+
+// TruncateTmpFile truncates the temporary file to only contain the Last url and file name, and index
 func TruncateTmpFile(tc TrackCache) error {
 	path := filepath.Join(os.TempDir(), TempFolder, tc.Sport)
 
@@ -74,7 +106,7 @@ func TruncateTmpFile(tc TrackCache) error {
 		return err
 	}
 	defer f.Close()
-	last := fmt.Sprintf("%s,%s%d", tc.CurrentFile, tc.CurrentURL, tc.Index)
+	last := fmt.Sprintf("%s,%s,%d", tc.CurrentFile, tc.CurrentURL, tc.Index)
 
 	f.WriteString(last)
 	return err
@@ -115,7 +147,7 @@ func TruncateTmpFile(tc TrackCache) error {
 */
 
 func AddToRetryCache(file string, url string) error {
-	retryPath := "sapeReady/retryCache.csv"
+	retryPath := "scrapeReady/retryCache.csv"
 	return fileutils.WriteLineCSV(retryPath, []string{file, url})
 }
 
