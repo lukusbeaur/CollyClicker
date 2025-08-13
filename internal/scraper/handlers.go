@@ -119,7 +119,7 @@ func playerStatsHandler(pageData *[]TeamData) func(e *colly.HTMLElement) {
 				}
 			})
 			if matchedTable == nil {
-				fmt.Printf("No table found for tab %s\n", tabName)
+				//fmt.Printf("No table found for tab %s\n", tabName)
 				return
 			}
 			matchedTable.Find("thead tr").Each(func(_ int, header *goquery.Selection) {

@@ -46,8 +46,8 @@ func Run() error {
 	c.Limit(&colly.LimitRule{
 		DomainGlob:  "*",
 		Parallelism: 1,
-		Delay:       1 * time.Second, // min
-		RandomDelay: 1 * time.Second, // extra random
+		Delay:       2 * time.Second, // min
+		RandomDelay: 4 * time.Second, // extra random
 	})
 	// Dont ignore robot.txt but allow domain revisiting
 	c.IgnoreRobotsTxt = false
@@ -71,7 +71,6 @@ func Run() error {
 		//fmt.Println(tbody.Text)
 		tbody.ForEach("td[data-stat='score']", func(i int, links *colly.HTMLElement) {
 			href := links.ChildAttr("a", "href")
-			fmt.Println(href)
 			if href != "" {
 				fbref = append(fbref, fmt.Sprintf("https://fbref.com%s", href))
 			}
@@ -83,17 +82,20 @@ func Run() error {
 
 	})
 	// This is used to get all links from the main schedule page
-	err := c.Visit("https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures")
-	if err != nil {
-		Util.Logger.Error("Could not connect to the link provided",
-			slog.String("Location", "App.go - C.visit Error"),
-			slog.Any("Error", err))
+	//I dont feel like refactoring this right now so im just going to skip it with this.
+	var links = false
+	if links {
+		err := c.Visit("https://fbref.com/en/comps/9/schedule/Premier-League-Scores-and-Fixtures")
+		if err != nil {
+			Util.Logger.Error("Could not connect to the link provided",
+				slog.String("Location", "App.go - C.visit Error"),
+				slog.Any("Error", err))
+		}
+
+		//Write all links scraped from FBref and save them/ If needed check to see if they are valid with Pinger
+		fileutils.WriteCSVsingle(fmt.Sprintf(dirName_unready+"links.csv"), fbref)
+		//Util.CheckURL("links/links.csv")
 	}
-
-	//Write all links scraped from FBref and save them/ If needed check to see if they are valid with Pinger
-	fileutils.WriteCSVsingle(fmt.Sprintf(dirName_unready+"links.csv"), fbref)
-	//Util.CheckURL("links/links.csv")
-
 	//Find all CSVs in links folder stores them in a array
 	//Inside the dirname_Ready folder will be all the vaid URLS for scraping.
 	Util.Logger.Info("Looking for CSV files in dirname Ready",
@@ -119,11 +121,16 @@ func Run() error {
 			"Error", err)
 		cacheInfo = []string{}
 	}
-	cacheFile := cacheInfo[0]
-	cacheIndex := cacheInfo[2]
-
+	var cacheFile string
+	var cacheIndexInt = -1
+	if len(cacheInfo) >= 3 {
+		cacheFile = cacheInfo[0]
+		if ci, e := strconv.Atoi(cacheInfo[2]); e == nil {
+			cacheIndexInt = ci
+		}
+	}
 	Util.Logger.Debug("Cache file and index",
-		"Index", cacheIndex,
+		"Index", cacheIndexInt,
 		"CacheFile", cacheFile,
 		"Location", "app.go - OpenTempFileString")
 	//-----------------end of Caching info --------------------------------------->
@@ -158,18 +165,6 @@ func Run() error {
 			// Read Row and index from CSVfile iterator
 			row, indexer, _, err := csvfile.Next()
 
-			//Caching logic, find index and if it is not the cache file, skip the file
-			if strconv.Itoa(indexer) < cacheIndex {
-				continue // skip this file if it is not the cache file
-			} else if strconv.Itoa(indexer) == cacheIndex && record != cacheFile {
-				Util.Logger.Debug("Continuing with cached file",
-					"Record", record,
-					"Index", strconv.Itoa(indexer),
-					"CacheIndex", cacheIndex,
-					"Location", "app.go - Range csvArray loop -> inside For loop")
-			}
-			//End caching logic -------------------------------->
-
 			//If error is End of File, break the loop. Go back to CSVarray loop
 			if errors.Is(err, io.EOF) {
 				Util.Logger.Error("Error Opening CSV/ CSV is empty - CONTINUE",
@@ -185,6 +180,17 @@ func Run() error {
 					slog.Any("Error", err))
 				continue
 			}
+			//Caching logic, find index and if it is not the cache file, skip the file
+			if cacheFile != "" && record == cacheFile && cacheIndexInt >= 0 && indexer < cacheIndexInt {
+				// still before the resume point → skip
+				continue
+			}
+			if cacheFile != "" && record == cacheFile && cacheIndexInt == indexer {
+				Util.Logger.Debug("Resuming at cached index",
+					"Record", record, "Index", indexer, "CacheIndex", cacheIndexInt)
+				// after this iteration, subsequent lines (> cacheIndexInt) will flow naturally
+			}
+			//End caching logic -------------------------------->
 
 			//If starts with http its a url try and scrape with it.
 			if len(row) == 0 || !strings.HasPrefix(row[0], "http") {

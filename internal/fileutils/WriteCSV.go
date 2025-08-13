@@ -21,16 +21,6 @@ func WriteCSVsingle(file string, links []string) error {
 			return err
 		}
 	}
-	//Move to where you call this function..
-	/* EXAMPLE USAGE
-		err := fileutils.WriteCSVsingle(file, links)
-	if err != nil {
-	    Logger.Error("Failed to write CSV", "Error", err)
-	} else {
-	    Logger.Info(fmt.Sprintf("Writing %s to CSV Complete.", file))
-	}
-	*/
-	// fmt.Printf("Writing  %s to CSV Complete.\n ", file)
 	return nil
 }
 
@@ -48,7 +38,5 @@ func WriteLineCSV(file string, link []string) error {
 	if err := w.Write(link); err != nil {
 		return err
 	}
-	//Check WriteCSVsingle for example usage
-	//fmt.Printf("Wrote line to %s \n", file)
 	return nil
 }
