@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%
+Alexander Isak,14,se SWE,FW,25-170,78,0,0,0,3,0,1,0,0,0,0,0,0,2,0,2,0.0
+Callum Wilson,9,eng ENG,FW,33-011,12,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0.0
+Harvey Barnes,11,eng ENG,LW,27-091,78,0,0,0,0,0,0,2,0,0,0,0,0,1,0,2,0.0
+Joe Willock,28,eng ENG,LW,25-202,12,0,0,0,0,0,0,1,0,0,0,0,0,2,0,0,
+Jacob Murphy,23,eng ENG,RW,30-014,90,0,0,0,0,0,0,6,0,0,0,0,0,8,0,0,
+Joelinton,7,br BRA,LM,28-208,90,0,0,0,5,3,0,1,1,2,0,0,0,5,2,2,50.0
+Sandro Tonali,8,it ITA,CM,24-306,90,0,0,0,1,0,0,1,1,2,0,0,0,1,2,0,100.0
+Bruno Guimarães,39,br BRA,RM,27-114,87,0,0,0,2,3,0,0,1,0,0,0,0,7,0,1,0.0
+Sean Longstaff,36,eng ENG,RM,27-131,3,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,
+Valentino Livramento,21,eng ENG,LB,22-118,90,0,0,0,0,0,0,2,0,1,0,0,0,9,0,1,0.0
+Dan Burn,33,eng ENG,CB,32-305,90,1,0,0,2,0,0,0,1,0,0,0,0,0,5,3,62.5
+Fabian Schär,5,ch SUI,CB,33-080,90,0,0,0,1,0,0,3,1,0,0,0,0,2,2,4,33.3
+Kieran Trippier,2,eng ENG,RB,34-172,90,0,0,0,0,0,0,5,3,0,0,0,0,3,0,0,
+Nick Pope,22,eng ENG,GK,32-325,90,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,100.0

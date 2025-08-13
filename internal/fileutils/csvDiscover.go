@@ -60,7 +60,7 @@ func ExtractDateFromURL(url string) (string, error) {
 		"January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December",
 	}
-	fmt.Println("Current URL:", url)
+	//fmt.Println("Current URL:", url)
 	for _, month := range months {
 		// Check if the month is present in the URL
 		if idx := strings.Index(url, month); idx != -1 {

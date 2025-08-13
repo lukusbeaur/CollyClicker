@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Cameron Archer,19,eng ENG,FW,23-062,58,13,12,1,0,0,0,0,0,0,0,0,0,10,0,0
+Ben Brereton,17,cl CHI,LW,25-156,32,13,13,0,0,0,0,0,0,0,0,0,0,11,0,0
+Ryan Fraser,24,sct SCO,LW,30-210,58,19,18,1,0,0,0,2,1,0,0,0,0,15,0,0
+Ross Stewart,11,sct SCO,FW,28-072,32,9,9,0,0,0,0,0,0,0,0,0,0,7,0,1
+Tyler Dibling,33,eng ENG,RW,18-193,81,28,28,0,0,2,0,0,0,0,0,0,0,23,0,0
+Adam Armstrong,9,eng ENG,RW,27-224,9,2,1,1,0,0,0,0,0,0,0,0,0,2,0,0
+Mateus Fernandes,18,pt POR,AM,20-073,89,32,32,0,0,2,0,0,0,0,0,0,0,28,0,0
+Joe Aribo,7,ng NGA,AM,28-062,1,2,2,0,0,0,0,0,0,0,0,0,0,1,0,0
+Adam Lallana,10,eng ENG,DM,36-134,58,37,37,0,0,0,0,0,0,0,0,0,0,35,0,0
+Lesley Ugochukwu,26,fr FRA,DM,20-179,32,8,8,0,0,0,0,0,0,0,0,0,0,8,0,0
+Flynn Downes,4,eng ENG,DM,25-245,90,54,50,4,4,1,0,0,0,0,0,0,0,50,0,0
+Charlie Taylor,21,eng ENG,LB,31-003,90,62,53,8,2,0,0,1,6,0,0,0,0,52,1,1
+Jan Bednarek,35,pl POL,CB,28-162,90,93,84,9,3,0,0,0,0,0,0,0,0,89,0,0
+Taylor Harwood-Bellis,6,eng ENG,CB,22-235,90,57,54,2,2,0,0,0,0,0,0,0,0,50,1,1
+Yukinari Sugawara,16,jp JPN,RB,24-085,90,51,42,8,3,0,1,6,3,2,0,2,0,37,1,0
+Aaron Ramsdale,30,eng ENG,GK,26-130,90,37,33,4,3,0,0,0,0,0,0,0,0,21,0,0

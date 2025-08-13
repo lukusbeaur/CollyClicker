@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Alexander Isak,14,se SWE,FW,25-116,77,26,24,1,0,0,0,0,0,0,0,0,0,19,1,2
+William Osula,18,dk DEN,FW,21-164,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Anthony Gordon,10,eng ENG,LW,23-326,77,36,35,1,0,1,0,2,1,0,0,0,0,25,0,4
+Joe Willock,28,eng ENG,LW,25-148,13,3,3,0,0,0,0,0,0,0,0,0,0,2,0,0
+Jacob Murphy,23,eng ENG,RW,29-326,77,40,37,1,0,0,1,6,0,1,0,0,0,24,2,1
+Miguel Almirón,24,py PAR,RW,30-340,13,7,7,0,0,0,0,0,0,0,0,0,0,6,0,0
+Joelinton,7,br BRA,LM,28-154,82,40,40,0,0,2,0,0,0,0,0,0,0,31,0,1
+Lewis Miley,67,eng ENG,LM,18-259,8,10,10,0,0,0,0,0,0,0,0,0,0,10,0,0
+Sandro Tonali,8,it ITA,CM,24-252,90,64,61,3,3,0,0,0,0,0,0,0,0,58,0,1
+Bruno Guimarães,39,br BRA,RM,27-060,90,68,65,3,3,2,0,0,0,0,0,0,0,57,0,0
+Lewis Hall,20,eng ENG,LB,20-129,90,63,55,8,2,0,0,6,3,3,3,0,0,56,0,1
+Dan Burn,33,eng ENG,CB,32-251,90,80,76,4,4,0,2,0,0,0,0,0,0,76,0,1
+Sven Botman,4,nl NED,CB,25-003,90,73,73,0,0,0,0,0,0,0,0,0,0,68,0,0
+Valentino Livramento,21,eng ENG,RB,22-064,84,62,51,11,0,0,0,3,11,0,0,0,0,53,0,3
+Kieran Trippier,2,eng ENG,RB,34-118,6,13,13,0,0,0,0,0,0,0,0,0,0,12,0,0
+Martin Dúbravka,1,sk SVK,GK,36-000,90,41,33,8,2,0,0,0,0,0,0,0,0,37,0,0

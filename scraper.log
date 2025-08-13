@@ -1,487 +1,222 @@
-time=2025-08-12T11:02:55.247-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:02:55.544-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:02:55.545-04:00 level=INFO msg="Resuming from cached state" File="premier_league_match_links (1).csv" URL=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League Index=8
-time=2025-08-12T11:02:55.545-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=1 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=2 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=3 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=4 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=5 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=6 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=7 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=8 CachedIndex=8 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:02:55.546-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:02:55.546-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:02:55.547-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-19-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0516ms url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.5005ms "Scrape time"=1.0516ms
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0516ms url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.5005ms "Scrape time"=1.0516ms
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0516ms url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.5005ms "Scrape time"=1.0516ms
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0516ms url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:02:55.547-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.5005ms "Scrape time"=1.0516ms
-time=2025-08-12T11:03:02.175-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.175-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.175-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.175-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.175-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.176-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.176-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.176-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.178-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.9742ms URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.179-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.6488ms URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.179-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.179-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.179-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League Duration=6.6325992s Location="App.go - c.Visit()"
-time=2025-08-12T11:03:02.179-04:00 level=INFO msg="Finished URL," "Total Duration"=6.9320997s URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:03:02.181-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:03:02.181-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.191ms url=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.9332907s "Scrape time"=1.191ms
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6951ms url=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.9337948s "Scrape time"=1.6951ms
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6951ms url=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.9337948s "Scrape time"=1.6951ms
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6951ms url=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:02.181-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.9337948s "Scrape time"=1.6951ms
-time=2025-08-12T11:03:05.161-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.161-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.161-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.161-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.161-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.162-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.162-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.162-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.163-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.062ms URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.165-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.5801ms URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.165-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.165-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.165-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League Duration=2.9840116s Location="App.go - c.Visit()"
-time=2025-08-12T11:03:05.165-04:00 level=INFO msg="Finished URL," "Total Duration"=9.9178064s URL=https://fbref.com/en/matches/fc8ab8b2/Brighton-and-Hove-Albion-Manchester-United-August-24-2024-Premier-League
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:03:05.167-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:03:05.167-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6384ms url=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.9194448s "Scrape time"=1.6384ms
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6384ms url=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.9194448s "Scrape time"=1.6384ms
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6384ms url=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.9194448s "Scrape time"=1.6384ms
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6384ms url=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:05.167-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.9199806s "Scrape time"=2.1742ms
-time=2025-08-12T11:03:10.019-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.020-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.025-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=4.7805ms URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.029-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.1442ms URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.029-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=73µs URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.029-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.029-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League Duration=4.8619251s Location="App.go - c.Visit()"
-time=2025-08-12T11:03:10.030-04:00 level=INFO msg="Finished URL," "Total Duration"=14.7824122s URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:03:10.033-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:03:10.033-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.5851ms url=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.7859973s "Scrape time"=3.5851ms
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.5851ms url=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.7859973s "Scrape time"=3.5851ms
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.5851ms url=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.7859973s "Scrape time"=3.5851ms
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.5851ms url=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:10.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.7861179s "Scrape time"=3.7057ms
-time=2025-08-12T11:03:17.002-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.002-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.002-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.002-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.003-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.003-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.003-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.003-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.004-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.2478ms URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.006-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.2569ms URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.006-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.006-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.006-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League Duration=6.9728537s Location="App.go - c.Visit()"
-time=2025-08-12T11:03:17.006-04:00 level=INFO msg="Finished URL," "Total Duration"=21.7589716s URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
-time=2025-08-12T11:03:17.007-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:03:17.007-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:03:17.008-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.74ms url=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=21.7607116s "Scrape time"=1.74ms
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.74ms url=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=21.7607116s "Scrape time"=1.74ms
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.74ms url=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=21.7607116s "Scrape time"=1.74ms
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.8022ms url=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:17.008-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=21.7607738s "Scrape time"=1.8022ms
-time=2025-08-12T11:03:19.253-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.253-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.253-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.253-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.254-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.254-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.254-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.254-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.257-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=2.6421ms URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.259-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.7792ms URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.260-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=611.6µs URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.260-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.260-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League Duration=2.2516661s Location="App.go - c.Visit()"
-time=2025-08-12T11:03:19.260-04:00 level=INFO msg="Finished URL," "Total Duration"=24.0124399s URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
-time=2025-08-12T11:03:19.260-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:03:19.260-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:03:19.261-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.2835ms url=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.0137234s "Scrape time"=1.2835ms
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.2835ms url=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.0137234s "Scrape time"=1.2835ms
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.2835ms url=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.0137234s "Scrape time"=1.2835ms
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.2835ms url=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:03:19.261-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.0137234s "Scrape time"=1.2835ms
-time=2025-08-12T11:22:52.734-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:22:53.030-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:22:53.031-04:00 level=INFO msg="Resuming from cached state" File="premier_league_match_links (1).csv" URL=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League Index=14
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=1 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=2 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=3 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=4 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=5 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=6 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=7 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=8 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=9 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=10 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=11 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=12 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=13 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.031-04:00 level=DEBUG msg="Caching state, Searching for last index" File="premier_league_match_links (1).csv" Line=14 CachedIndex=14 Location="app.go - Range csvArray loop -> inside For loop"
-time=2025-08-12T11:22:53.032-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:22:53.032-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:22:53.033-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1351ms url=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.0235ms "Scrape time"=1.1351ms
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1351ms url=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.0235ms "Scrape time"=1.1351ms
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1351ms url=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.0235ms "Scrape time"=1.1351ms
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1351ms url=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:53.033-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=299.0235ms "Scrape time"=1.1351ms
-time=2025-08-12T11:22:57.247-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.247-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.247-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.247-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.248-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.248-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.248-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.248-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.250-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.4945ms URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.252-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.4981ms URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.252-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.252-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.252-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League Duration=4.2191728s Location="App.go - c.Visit()"
-time=2025-08-12T11:22:57.252-04:00 level=INFO msg="Finished URL," "Total Duration"=4.5181963s URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:22:57.253-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:22:57.253-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-24-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6909ms url=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.5198872s "Scrape time"=1.6909ms
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6909ms url=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.5198872s "Scrape time"=1.6909ms
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6909ms url=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.5198872s "Scrape time"=1.6909ms
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.6909ms url=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:22:57.253-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.5198872s "Scrape time"=1.6909ms
-time=2025-08-12T11:46:37.591-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:46:37.853-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:46:37.853-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:46:37.855-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:46:37.855-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0983ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=264.0191ms "Scrape time"=2.0983ms
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0983ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=264.0191ms "Scrape time"=2.0983ms
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0983ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=264.0191ms "Scrape time"=2.0983ms
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0983ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:37.855-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=264.0191ms "Scrape time"=2.0983ms
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.275-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.275-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.278-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.1331ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.281-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.092ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.282-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.282-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.282-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League Duration=3.4267924s Location="App.go - c.Visit()"
-time=2025-08-12T11:46:41.282-04:00 level=INFO msg="Finished URL," "Total Duration"=3.6908115s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:46:41.283-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:46:41.284-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:46:41.284-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.819ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.6926305s "Scrape time"=1.819ms
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.819ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.6926305s "Scrape time"=1.819ms
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.3262ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.6931377s "Scrape time"=2.3262ms
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.3262ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:41.284-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.6931377s "Scrape time"=2.3262ms
-time=2025-08-12T11:46:47.293-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.293-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.293-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.293-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.294-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.294-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.294-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.294-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.296-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.6289ms URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.298-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.6348ms URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.298-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.298-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.298-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League Duration=6.0135993s Location="App.go - c.Visit()"
-time=2025-08-12T11:46:47.298-04:00 level=INFO msg="Finished URL," "Total Duration"=9.7068115s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:46:47.299-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:46:47.299-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:46:47.299-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.685ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.7084965s "Scrape time"=1.685ms
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.685ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.7084965s "Scrape time"=1.685ms
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.685ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.7084965s "Scrape time"=1.685ms
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.685ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:47.300-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.7084965s "Scrape time"=1.685ms
-time=2025-08-12T11:46:56.859-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:46:57.077-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:46:57.077-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T11:46:57.078-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:46:57.078-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:46:57.079-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1537ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=219.9818ms "Scrape time"=1.1537ms
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1537ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=219.9818ms "Scrape time"=1.1537ms
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1537ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=219.9818ms "Scrape time"=1.1537ms
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1537ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:46:57.079-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=219.9818ms "Scrape time"=1.1537ms
-time=2025-08-12T11:47:01.001-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.001-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.001-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.001-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.002-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=111µs URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.002-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.002-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.002-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.004-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.9126ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.005-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.1756ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.005-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=117.2µs URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.005-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.005-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League Duration=3.9267735s Location="App.go - c.Visit()"
-time=2025-08-12T11:47:01.005-04:00 level=INFO msg="Finished URL," "Total Duration"=4.1467553s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:47:01.007-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:47:01.007-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0492ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.1488045s "Scrape time"=2.0492ms
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0492ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.1488045s "Scrape time"=2.0492ms
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0492ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.1488045s "Scrape time"=2.0492ms
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.0492ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:01.007-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.1488045s "Scrape time"=2.0492ms
-time=2025-08-12T11:47:03.273-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.273-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.273-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.273-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.274-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.278-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.0306ms URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.280-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.2422ms URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.281-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.281-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.281-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League Duration=2.2731431s Location="App.go - c.Visit()"
-time=2025-08-12T11:47:03.281-04:00 level=INFO msg="Finished URL," "Total Duration"=6.4219476s URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:47:03.282-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:47:03.282-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1547ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.4231023s "Scrape time"=1.1547ms
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1547ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.4231023s "Scrape time"=1.1547ms
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1547ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.4231023s "Scrape time"=1.1547ms
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.1547ms url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:03.282-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.4231023s "Scrape time"=1.1547ms
-time=2025-08-12T11:47:06.955-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.955-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.955-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.955-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.956-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.956-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.956-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.956-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.958-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=1.6749ms URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.961-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=2.2069ms URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.961-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.961-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.961-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League Duration=3.6794889s Location="App.go - c.Visit()"
-time=2025-08-12T11:47:06.961-04:00 level=INFO msg="Finished URL," "Total Duration"=10.1025912s URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
-time=2025-08-12T11:47:06.964-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:47:06.964-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:47:06.965-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.6639ms url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=10.1062551s "Scrape time"=3.6639ms
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.6639ms url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=10.1062551s "Scrape time"=3.6639ms
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.6639ms url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=10.1062551s "Scrape time"=3.6639ms
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.6639ms url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:47:06.965-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=10.1062551s "Scrape time"=3.6639ms
-time=2025-08-12T11:55:10.151-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:55:10.962-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:55:10.964-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T11:55:10.985-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:55:10.985-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:55:11.003-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Total Scrape time" "Scrape time"=38.8899ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=852.8387ms "Scrape time"=38.8899ms
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Total Scrape time" "Scrape time"=38.8899ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=852.8387ms "Scrape time"=38.8899ms
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Total Scrape time" "Scrape time"=38.8899ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=852.8387ms "Scrape time"=38.8899ms
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Total Scrape time" "Scrape time"=38.8899ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:11.003-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=852.8387ms "Scrape time"=38.8899ms
-time=2025-08-12T11:55:18.125-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.125-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.125-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.125-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.126-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.126-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.126-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.126-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.130-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.0019ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.143-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=12.6119ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.143-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.143-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.143-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League Duration=7.1395711s Location="App.go - c.Visit()"
-time=2025-08-12T11:55:18.143-04:00 level=INFO msg="Finished URL," "Total Duration"=7.9924098s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:55:18.147-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:55:18.147-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:55:18.148-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Total Scrape time" "Scrape time"=5.271ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=7.9978305s "Scrape time"=5.4207ms
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Total Scrape time" "Scrape time"=5.4207ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=7.9978305s "Scrape time"=5.4207ms
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Total Scrape time" "Scrape time"=5.4207ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=7.9978305s "Scrape time"=5.4207ms
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Total Scrape time" "Scrape time"=5.4207ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:55:18.148-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=7.9978305s "Scrape time"=5.4207ms
-time=2025-08-12T11:57:13.105-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:57:13.383-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:57:13.383-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T11:57:13.384-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:57:13.384-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:57:13.385-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.664ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=280.1332ms "Scrape time"=1.664ms
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.664ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=280.1332ms "Scrape time"=1.664ms
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.664ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=280.1332ms "Scrape time"=1.664ms
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.664ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:13.385-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=280.1332ms "Scrape time"=1.664ms
-time=2025-08-12T11:57:19.237-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.237-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.237-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.237-04:00 level=INFO msg="Handler finished" Selector=div.datapoint Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.239-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.239-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.239-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.239-04:00 level=INFO msg="Handler finished" Selector="div.lineup th[colspan]" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.243-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=3.723ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.247-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_player_stats']" Duration=4.0012ms URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.248-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.248-04:00 level=INFO msg="Handler finished" Selector="div[id^='all_keeper_stats_']" Duration=0s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.248-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League Duration=5.8627826s Location="App.go - c.Visit()"
-time=2025-08-12T11:57:19.248-04:00 level=INFO msg="Finished URL," "Total Duration"=6.1429158s URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League
-time=2025-08-12T11:57:19.250-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:57:19.250-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:57:19.250-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:57:19.250-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.2477ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:19.250-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.1451635s "Scrape time"=2.2477ms
-time=2025-08-12T11:57:19.250-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.2477ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:19.250-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.1451635s "Scrape time"=2.2477ms
-time=2025-08-12T11:57:19.251-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.7845ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:19.251-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.1457003s "Scrape time"=2.7845ms
-time=2025-08-12T11:57:19.251-04:00 level=INFO msg="Total Scrape time" "Scrape time"=2.7845ms url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:19.251-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.1457003s "Scrape time"=2.7845ms
-time=2025-08-12T11:57:42.591-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T11:57:42.893-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T11:57:42.895-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T11:57:42.897-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T11:57:42.897-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T11:57:42.898-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.2418ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=306.8357ms "Scrape time"=3.2418ms
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.2418ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=306.8357ms "Scrape time"=3.2418ms
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.2418ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=306.8357ms "Scrape time"=3.2418ms
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Total Scrape time" "Scrape time"=3.2418ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T11:57:42.898-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=306.8357ms "Scrape time"=3.2418ms
-time=2025-08-12T12:00:00.309-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T12:00:00.627-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T12:00:00.627-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T12:00:00.629-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T12:00:00.629-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0826ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=320.2386ms "Scrape time"=1.0826ms
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0826ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=320.2386ms "Scrape time"=1.0826ms
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0826ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=320.2386ms "Scrape time"=1.0826ms
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.0826ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:00:00.629-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=320.7428ms "Scrape time"=1.5868ms
-time=2025-08-12T12:01:00.544-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T12:01:00.813-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T12:01:00.813-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T12:01:00.814-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T12:01:00.814-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.5049ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=269.7272ms "Scrape time"=1.5049ms
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.5049ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=269.7272ms "Scrape time"=1.5049ms
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.5049ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=269.7272ms "Scrape time"=1.5049ms
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.5049ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:00.814-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=269.7272ms "Scrape time"=1.5049ms
-time=2025-08-12T12:01:27.325-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
-time=2025-08-12T12:01:27.576-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
-time=2025-08-12T12:01:27.576-04:00 level=DEBUG msg="Reading CSVs from csvarray. Array created from findcsvfiles." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
-time=2025-08-12T12:01:27.577-04:00 level=INFO msg="Scraping State" URL=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League "Keeper Counter"=0
-time=2025-08-12T12:01:27.577-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
-time=2025-08-12T12:01:27.578-04:00 level=DEBUG msg="Extracting Date from URL string for building output folder structure." Date=August-17-2024 Location="App.go - After Handler selectors -> Get Dates"
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.7346ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=252.7214ms "Scrape time"=1.7346ms
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.7346ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=252.7214ms "Scrape time"=1.7346ms
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.7346ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=252.7214ms "Scrape time"=1.7346ms
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Total Scrape time" "Scrape time"=1.7346ms url=https://fbref.com/en/matches/a1d0d529/Ipswich-Town-Liverpool-August-17-2024-Premier-League location="app.go - scrape loop"
-time=2025-08-12T12:01:27.578-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=252.7214ms "Scrape time"=1.7346ms
+time=2025-08-13T09:43:50.106-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T09:43:50.430-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T09:43:50.430-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T09:43:50.431-04:00 level=DEBUG msg="Cache file and index" Index=84 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T09:43:50.431-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T09:43:53.003-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
+time=2025-08-13T09:43:53.003-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League Duration=2.5705801s
+time=2025-08-13T09:43:53.003-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=2.897122s "Scrape time"=2.5715786s
+time=2025-08-13T09:43:59.375-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/bce300b2/Aston-Villa-Bournemouth-October-26-2024-Premier-League
+time=2025-08-13T09:43:59.375-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/bce300b2/Aston-Villa-Bournemouth-October-26-2024-Premier-League Duration=6.3719026s
+time=2025-08-13T09:43:59.375-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.2695443s "Scrape time"=6.3724223s
+time=2025-08-13T09:44:04.796-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/1e5152bf/Everton-Fulham-October-26-2024-Premier-League
+time=2025-08-13T09:44:04.796-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/1e5152bf/Everton-Fulham-October-26-2024-Premier-League Duration=5.4165245s
+time=2025-08-13T09:44:04.796-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.6904348s "Scrape time"=5.4208905s
+time=2025-08-13T09:44:10.185-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/38c31a07/West-Ham-United-Manchester-United-October-27-2024-Premier-League
+time=2025-08-13T09:44:10.185-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/38c31a07/West-Ham-United-Manchester-United-October-27-2024-Premier-League Duration=5.3881948s
+time=2025-08-13T09:44:10.185-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=20.0797608s "Scrape time"=5.389326s
+time=2025-08-13T09:44:15.308-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/33571b04/Chelsea-Newcastle-United-October-27-2024-Premier-League
+time=2025-08-13T09:44:15.308-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/33571b04/Chelsea-Newcastle-United-October-27-2024-Premier-League Duration=5.1229225s
+time=2025-08-13T09:44:15.309-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=25.2031965s "Scrape time"=5.1234357s
+time=2025-08-13T09:44:18.961-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/e995d937/Crystal-Palace-Tottenham-Hotspur-October-27-2024-Premier-League
+time=2025-08-13T09:44:18.961-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/e995d937/Crystal-Palace-Tottenham-Hotspur-October-27-2024-Premier-League Duration=3.651942s
+time=2025-08-13T09:44:18.961-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=28.8557144s "Scrape time"=3.6525179s
+time=2025-08-13T09:44:24.956-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/68aa1099/Arsenal-Liverpool-October-27-2024-Premier-League
+time=2025-08-13T09:44:24.956-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/68aa1099/Arsenal-Liverpool-October-27-2024-Premier-League Duration=5.9902141s
+time=2025-08-13T09:44:24.956-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=34.8504949s "Scrape time"=5.9942642s
+time=2025-08-13T09:44:28.698-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/cc960c22/Newcastle-United-Arsenal-November-2-2024-Premier-League
+time=2025-08-13T09:44:28.698-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/cc960c22/Newcastle-United-Arsenal-November-2-2024-Premier-League Duration=3.741892s
+time=2025-08-13T09:44:28.698-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=38.5923869s "Scrape time"=3.741892s
+time=2025-08-13T09:44:31.210-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/7d114c70/Liverpool-Brighton-and-Hove-Albion-November-2-2024-Premier-League
+time=2025-08-13T09:44:31.210-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/7d114c70/Liverpool-Brighton-and-Hove-Albion-November-2-2024-Premier-League Duration=2.510284s
+time=2025-08-13T09:44:31.210-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=41.1047938s "Scrape time"=2.5124069s
+time=2025-08-13T09:44:37.734-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/2be42fdb/Southampton-Everton-November-2-2024-Premier-League
+time=2025-08-13T09:44:37.734-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/2be42fdb/Southampton-Everton-November-2-2024-Premier-League Duration=6.5212987s
+time=2025-08-13T09:44:37.734-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=47.6282196s "Scrape time"=6.5234258s
+time=2025-08-13T09:44:40.593-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/c2505640/Nottingham-Forest-West-Ham-United-November-2-2024-Premier-League
+time=2025-08-13T09:44:40.593-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/c2505640/Nottingham-Forest-West-Ham-United-November-2-2024-Premier-League Duration=2.8592349s
+time=2025-08-13T09:44:40.593-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=50.4874545s "Scrape time"=2.8592349s
+time=2025-08-13T09:44:45.910-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/ed8f93a0/Ipswich-Town-Leicester-City-November-2-2024-Premier-League
+time=2025-08-13T09:44:45.910-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/ed8f93a0/Ipswich-Town-Leicester-City-November-2-2024-Premier-League Duration=5.3154443s
+time=2025-08-13T09:44:45.910-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=55.8039394s "Scrape time"=5.3164849s
+time=2025-08-13T09:44:52.687-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/ed970fef/Bournemouth-Manchester-City-November-2-2024-Premier-League
+time=2025-08-13T09:44:52.687-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/ed970fef/Bournemouth-Manchester-City-November-2-2024-Premier-League Duration=6.7720429s
+time=2025-08-13T09:44:52.687-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=1m2.5815119s "Scrape time"=6.7775725s
+time=2025-08-13T09:44:55.080-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/a4251fae/Wolverhampton-Wanderers-Crystal-Palace-November-2-2024-Premier-League
+time=2025-08-13T09:44:55.080-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a4251fae/Wolverhampton-Wanderers-Crystal-Palace-November-2-2024-Premier-League Duration=2.3918106s
+time=2025-08-13T09:44:55.080-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=1m4.974382s "Scrape time"=2.3928701s
+time=2025-08-13T09:45:00.215-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/8fa951f9/Tottenham-Hotspur-Aston-Villa-November-3-2024-Premier-League
+time=2025-08-13T09:45:00.215-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/8fa951f9/Tottenham-Hotspur-Aston-Villa-November-3-2024-Premier-League Duration=5.1345484s
+time=2025-08-13T09:45:00.215-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=1m10.1094353s "Scrape time"=5.1350533s
+time=2025-08-13T09:45:07.359-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/1273ae28/Manchester-United-Chelsea-November-3-2024-Premier-League
+time=2025-08-13T09:45:07.359-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/1273ae28/Manchester-United-Chelsea-November-3-2024-Premier-League Duration=7.1430721s
+time=2025-08-13T09:45:07.359-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=1m17.2531144s "Scrape time"=7.1436791s
+time=2025-08-13T09:45:09.791-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/e1590847/Fulham-Brentford-November-4-2024-Premier-League
+time=2025-08-13T09:45:09.791-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/e1590847/Fulham-Brentford-November-4-2024-Premier-League Duration=2.4316069s
+time=2025-08-13T09:45:09.791-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=1m19.6857924s "Scrape time"=2.432678s
+time=2025-08-13T09:47:28.626-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T09:47:28.834-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T09:47:28.834-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T09:47:28.835-04:00 level=DEBUG msg="Cache file and index" Index=99 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T09:47:28.835-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T09:47:34.028-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/e1590847/Fulham-Brentford-November-4-2024-Premier-League
+time=2025-08-13T09:47:34.028-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/e1590847/Fulham-Brentford-November-4-2024-Premier-League Duration=5.1904279s
+time=2025-08-13T09:47:34.028-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=5.4016759s "Scrape time"=5.1926189s
+time=2025-08-13T09:48:22.207-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T09:48:22.438-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T09:48:22.438-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T09:48:22.439-04:00 level=DEBUG msg="Cache file and index" Index=100 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T09:48:22.439-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T09:48:26.533-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
+time=2025-08-13T09:48:26.533-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League Duration=4.0929855s
+time=2025-08-13T09:48:26.533-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.3261224s "Scrape time"=4.0940217s
+time=2025-08-13T09:48:32.115-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
+time=2025-08-13T09:48:32.115-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League Duration=5.5808104s
+time=2025-08-13T09:48:32.115-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.9083112s "Scrape time"=5.5821888s
+time=2025-08-13T09:48:36.922-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League
+time=2025-08-13T09:48:36.922-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League Duration=4.8060413s
+time=2025-08-13T09:48:36.922-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=14.7153833s "Scrape time"=4.8070721s
+time=2025-08-13T09:48:41.186-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League
+time=2025-08-13T09:48:41.186-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League Duration=4.2618555s
+time=2025-08-13T09:48:41.186-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=18.9788623s "Scrape time"=4.263479s
+time=2025-08-13T09:48:44.805-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League
+time=2025-08-13T09:48:44.805-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League Duration=3.6194779s
+time=2025-08-13T09:48:44.805-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=22.5983402s "Scrape time"=3.6194779s
+time=2025-08-13T09:48:49.343-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League
+time=2025-08-13T09:48:49.343-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League Duration=4.5367377s
+time=2025-08-13T09:48:49.343-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=27.1362433s "Scrape time"=4.5379031s
+time=2025-08-13T09:48:54.694-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League
+time=2025-08-13T09:48:54.694-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League Duration=5.349386s
+time=2025-08-13T09:48:54.694-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=32.4876293s "Scrape time"=5.351386s
+time=2025-08-13T09:48:59.983-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
+time=2025-08-13T09:48:59.983-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League Duration=5.2869557s
+time=2025-08-13T09:48:59.983-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=37.7764301s "Scrape time"=5.2888008s
+time=2025-08-13T09:49:55.990-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T09:49:56.252-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T09:49:56.252-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T09:49:56.252-04:00 level=DEBUG msg="Cache file and index" Index=11 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T09:49:56.252-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T09:49:59.105-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League
+time=2025-08-13T09:49:59.105-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/34557647/Newcastle-United-Southampton-August-17-2024-Premier-League Duration=2.8500251s
+time=2025-08-13T09:49:59.105-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.1152887s "Scrape time"=2.8520005s
+time=2025-08-13T09:50:00.794-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
+time=2025-08-13T09:50:00.794-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League Duration=1.68843s
+time=2025-08-13T09:50:00.794-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=4.8046764s "Scrape time"=1.6893877s
+time=2025-08-13T09:50:02.031-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League
+time=2025-08-13T09:50:02.031-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League Duration=1.2349423s
+time=2025-08-13T09:50:02.031-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.0413328s "Scrape time"=1.2366564s
+time=2025-08-13T09:50:04.847-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League
+time=2025-08-13T09:50:04.847-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League Duration=2.8137325s
+time=2025-08-13T09:50:04.847-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=8.8573481s "Scrape time"=2.8160153s
+time=2025-08-13T09:50:07.278-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League
+time=2025-08-13T09:50:07.278-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League Duration=2.429473s
+time=2025-08-13T09:50:07.278-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=11.2881475s "Scrape time"=2.4307994s
+time=2025-08-13T09:50:09.436-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League
+time=2025-08-13T09:50:09.436-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League Duration=2.1537681s
+time=2025-08-13T09:50:09.436-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=13.4466012s "Scrape time"=2.1584537s
+time=2025-08-13T09:50:12.455-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League
+time=2025-08-13T09:50:12.455-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League Duration=3.0167582s
+time=2025-08-13T09:50:12.455-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=16.464972s "Scrape time"=3.0183708s
+time=2025-08-13T09:50:13.779-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
+time=2025-08-13T09:50:13.779-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League Duration=1.3230263s
+time=2025-08-13T09:50:13.779-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=17.7890359s "Scrape time"=1.3240639s
+time=2025-08-13T09:50:16.234-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League
+time=2025-08-13T09:50:16.234-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a24b7a43/Manchester-City-Ipswich-Town-August-24-2024-Premier-League Duration=2.4543001s
+time=2025-08-13T09:50:16.234-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=20.244406s "Scrape time"=2.4553701s
+time=2025-08-13T09:50:18.900-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League
+time=2025-08-13T09:50:18.900-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a641f3a0/Southampton-Nottingham-Forest-August-24-2024-Premier-League Duration=2.6645905s
+time=2025-08-13T09:50:18.900-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=22.9102302s "Scrape time"=2.6658242s
+time=2025-08-13T09:50:20.497-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League
+time=2025-08-13T09:50:20.497-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/1eef1717/Tottenham-Hotspur-Everton-August-24-2024-Premier-League Duration=1.5968848s
+time=2025-08-13T09:50:20.497-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.507689s "Scrape time"=1.5974588s
+time=2025-08-13T09:50:23.528-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League
+time=2025-08-13T09:50:23.528-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/4d0079fb/Fulham-Leicester-City-August-24-2024-Premier-League Duration=3.0291992s
+time=2025-08-13T09:50:23.528-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=27.5379136s "Scrape time"=3.0302246s
+time=2025-08-13T09:50:26.203-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League
+time=2025-08-13T09:50:26.203-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/540cfb68/Crystal-Palace-West-Ham-United-August-24-2024-Premier-League Duration=2.6746145s
+time=2025-08-13T09:50:26.203-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=30.2133284s "Scrape time"=2.6754148s
+time=2025-08-13T09:50:28.696-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League
+time=2025-08-13T09:50:28.696-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/4692171a/Aston-Villa-Arsenal-August-24-2024-Premier-League Duration=2.4917591s
+time=2025-08-13T09:50:28.696-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=32.7061094s "Scrape time"=2.492781s
+time=2025-08-13T09:50:29.868-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/e76c15c9/Wolverhampton-Wanderers-Chelsea-August-25-2024-Premier-League
+time=2025-08-13T09:50:29.868-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/e76c15c9/Wolverhampton-Wanderers-Chelsea-August-25-2024-Premier-League Duration=1.1721044s
+time=2025-08-13T09:50:29.868-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=33.8787798s "Scrape time"=1.1726704s
+time=2025-08-13T09:50:32.929-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/1934f267/Bournemouth-Newcastle-United-August-25-2024-Premier-League
+time=2025-08-13T09:50:32.929-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/1934f267/Bournemouth-Newcastle-United-August-25-2024-Premier-League Duration=3.0596513s
+time=2025-08-13T09:50:32.929-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=36.9396864s "Scrape time"=3.0609066s
+time=2025-08-13T09:50:34.193-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/09b1742e/Liverpool-Brentford-August-25-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T09:50:36.480-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/a843d023/Arsenal-Brighton-and-Hove-Albion-August-31-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T09:50:38.968-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/cec85838/Ipswich-Town-Fulham-August-31-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T09:50:41.104-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/837f0304/Nottingham-Forest-Wolverhampton-Wanderers-August-31-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T09:50:43.855-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/fec3438b/Brentford-Southampton-August-31-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T09:50:46.533-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/5af68b76/Leicester-City-Aston-Villa-August-31-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T12:59:43.936-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T12:59:45.905-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T12:59:45.906-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T12:59:45.906-04:00 level=DEBUG msg="Cache file and index" Index=25 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T12:59:45.906-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T12:59:47.851-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League
+time=2025-08-13T12:59:47.851-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/71618ace/Everton-Brighton-and-Hove-Albion-August-17-2024-Premier-League Duration=1.9439442s
+time=2025-08-13T12:59:47.851-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=3.914601s "Scrape time"=1.9449443s
+time=2025-08-13T12:59:49.946-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League
+time=2025-08-13T12:59:49.946-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/4efc72e4/Nottingham-Forest-Bournemouth-August-17-2024-Premier-League Duration=2.0946556s
+time=2025-08-13T12:59:49.946-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=6.0097189s "Scrape time"=2.0951179s
+time=2025-08-13T12:59:51.411-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League
+time=2025-08-13T12:59:51.411-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League Duration=1.4648244s
+time=2025-08-13T12:59:51.411-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=7.4750585s "Scrape time"=1.4653396s
+time=2025-08-13T12:59:53.355-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League
+time=2025-08-13T12:59:53.355-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/eac7c00b/West-Ham-United-Aston-Villa-August-17-2024-Premier-League Duration=1.941971s
+time=2025-08-13T12:59:53.355-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=9.41834s "Scrape time"=1.9432815s
+time=2025-08-13T12:59:55.063-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League
+time=2025-08-13T12:59:55.063-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/b63822b9/Brentford-Crystal-Palace-August-18-2024-Premier-League Duration=1.7079395s
+time=2025-08-13T12:59:55.063-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=11.1270964s "Scrape time"=1.7087564s
+time=2025-08-13T12:59:56.444-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League
+time=2025-08-13T12:59:56.444-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/67a0c715/Chelsea-Manchester-City-August-18-2024-Premier-League Duration=1.378974s
+time=2025-08-13T12:59:56.444-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=12.5076976s "Scrape time"=1.3806012s
+time=2025-08-13T12:59:57.625-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League
+time=2025-08-13T12:59:57.625-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/62eea1d6/Leicester-City-Tottenham-Hotspur-August-19-2024-Premier-League Duration=1.1814457s
+time=2025-08-13T12:59:57.625-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=13.6891433s "Scrape time"=1.1814457s
+time=2025-08-13T12:59:59.196-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/58bbe046/Everton-Bournemouth-August-31-2024-Premier-League
+time=2025-08-13T12:59:59.196-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/58bbe046/Everton-Bournemouth-August-31-2024-Premier-League Duration=1.5696923s
+time=2025-08-13T12:59:59.196-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=15.2600969s "Scrape time"=1.5709536s
+time=2025-08-13T13:00:00.441-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/97ce60d4/West-Ham-United-Manchester-City-August-31-2024-Premier-League
+time=2025-08-13T13:00:00.441-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/97ce60d4/West-Ham-United-Manchester-City-August-31-2024-Premier-League Duration=1.2437991s
+time=2025-08-13T13:00:00.441-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=16.5045106s "Scrape time"=1.2444137s
+time=2025-08-13T13:00:02.459-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/0c994746/Newcastle-United-Tottenham-Hotspur-September-1-2024-Premier-League
+time=2025-08-13T13:00:02.459-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/0c994746/Newcastle-United-Tottenham-Hotspur-September-1-2024-Premier-League Duration=2.0181411s
+time=2025-08-13T13:00:02.459-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=18.5231828s "Scrape time"=2.0186722s
+time=2025-08-13T13:00:03.676-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/3387c2c8/Chelsea-Crystal-Palace-September-1-2024-Premier-League
+time=2025-08-13T13:00:03.676-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/3387c2c8/Chelsea-Crystal-Palace-September-1-2024-Premier-League Duration=1.2162951s
+time=2025-08-13T13:00:03.677-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=19.7406242s "Scrape time"=1.2174414s
+time=2025-08-13T13:00:05.252-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/a7ab7a12/North-West-Derby-Manchester-United-Liverpool-September-1-2024-Premier-League
+time=2025-08-13T13:00:05.252-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/a7ab7a12/North-West-Derby-Manchester-United-Liverpool-September-1-2024-Premier-League Duration=1.5741467s
+time=2025-08-13T13:00:05.252-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=21.3158601s "Scrape time"=1.5752359s
+time=2025-08-13T13:00:07.157-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/b96c3759/Southampton-Manchester-United-September-14-2024-Premier-League
+time=2025-08-13T13:00:07.157-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/b96c3759/Southampton-Manchester-United-September-14-2024-Premier-League Duration=1.9030961s
+time=2025-08-13T13:00:07.157-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=23.2210761s "Scrape time"=1.905216s
+time=2025-08-13T13:00:08.388-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/54405f8a/Manchester-City-Brentford-September-14-2024-Premier-League
+time=2025-08-13T13:00:08.389-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/54405f8a/Manchester-City-Brentford-September-14-2024-Premier-League Duration=1.2306846s
+time=2025-08-13T13:00:08.389-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=24.4523051s "Scrape time"=1.231229s
+time=2025-08-13T13:00:10.241-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/674bfe9e/Liverpool-Nottingham-Forest-September-14-2024-Premier-League
+time=2025-08-13T13:00:10.241-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/674bfe9e/Liverpool-Nottingham-Forest-September-14-2024-Premier-League Duration=1.8518134s
+time=2025-08-13T13:00:10.241-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=26.3051538s "Scrape time"=1.8528487s
+time=2025-08-13T13:00:12.266-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/430cce12/Crystal-Palace-Leicester-City-September-14-2024-Premier-League
+time=2025-08-13T13:00:12.266-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/430cce12/Crystal-Palace-Leicester-City-September-14-2024-Premier-League Duration=2.0233435s
+time=2025-08-13T13:00:12.266-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=28.3298752s "Scrape time"=2.0247214s
+time=2025-08-13T13:00:13.440-04:00 level=INFO msg="Wrote pageData" rows=2 url=https://fbref.com/en/matches/fa2b1777/Fulham-West-Ham-United-September-14-2024-Premier-League
+time=2025-08-13T13:00:13.440-04:00 level=INFO msg="Finished URL Visit" URL=https://fbref.com/en/matches/fa2b1777/Fulham-West-Ham-United-September-14-2024-Premier-League Duration=1.173128s
+time=2025-08-13T13:00:13.440-04:00 level=INFO msg="Finished scraping Handler ," "Total Duration"=29.5040245s "Scrape time"=1.1741493s
+time=2025-08-13T13:00:15.354-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/2ffa4354/Brighton-and-Hove-Albion-Ipswich-Town-September-14-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:00:16.505-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/cdb4c33b/Aston-Villa-Everton-September-14-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:00:17.876-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/456b4762/Bournemouth-Chelsea-September-14-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:00:18.971-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/17774a57/North-London-Derby-Tottenham-Hotspur-Arsenal-September-15-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:00:20.936-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/4b01981e/Wolverhampton-Wanderers-Newcastle-United-September-15-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:00:22.280-04:00 level=ERROR msg="Request enqueue failed" url=https://fbref.com/en/matches/ce0fb1f5/West-Ham-United-Chelsea-September-21-2024-Premier-League file="premier_league_match_links (1).csv" err="Too Many Requests"
+time=2025-08-13T13:03:12.481-04:00 level=DEBUG msg="Starting Scraping process" Location="App.go Run()"
+time=2025-08-13T13:03:14.579-04:00 level=ERROR msg="Could not connect to the link provided" Location="App.go - C.visit Error" Error="Too Many Requests"
+time=2025-08-13T13:03:14.580-04:00 level=INFO msg="Looking for CSV files in dirname Ready" Location="app.go - FindcsvFiles" dirname_ready=links/scrapeReady/
+time=2025-08-13T13:03:14.580-04:00 level=DEBUG msg="Creation of CollyCollector : c:="
+time=2025-08-13T13:03:14.581-04:00 level=DEBUG msg="Cache file and index" Index=41 CacheFile="premier_league_match_links (1).csv" Location="app.go - OpenTempFileString"
+time=2025-08-13T13:03:14.581-04:00 level=DEBUG msg="Reading CSVs from csvarray." Location="app.go - Range csvArray loop" Record="premier_league_match_links (1).csv"
+time=2025-08-13T13:03:15.783-04:00 level=ERROR msg="Colly request error" url=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League status=429 err="Too Many Requests"
+time=2025-08-13T13:03:15.783-04:00 level=WARN msg="429 received; backing off" url=https://fbref.com/en/matches/c0e3342a/Arsenal-Wolverhampton-Wanderers-August-17-2024-Premier-League retryAfter=56m59s backoff=1s wait=57m0.693s retries=1

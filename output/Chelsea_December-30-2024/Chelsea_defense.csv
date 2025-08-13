@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,Tkl,TklW,Def 3rd,Mid 3rd,Att 3rd,Tkl,Att,Tkl%,Lost,Blocks,Sh,Pass,Int,Tkl+Int,Clr,Err
+Christopher Nkunku,18,fr FRA,"FW,LW",27-046,64,0,0,0,0,0,0,0,,0,0,0,0,1,1,0,0
+Jadon Sancho,19,eng ENG,LW,24-280,26,0,0,0,0,0,0,0,,0,0,0,0,0,0,1,0
+João Félix,14,pt POR,LW,25-050,54,1,0,0,1,0,0,0,,0,0,0,0,0,1,0,0
+Nicolas Jackson,15,sn SEN,FW,23-193,36,0,0,0,0,0,0,0,,0,0,0,0,0,0,1,0
+Noni Madueke,11,eng ENG,RW,22-295,76,1,1,0,1,0,1,1,100.0,0,0,0,0,1,2,0,0
+Pedro Neto,7,pt POR,RW,24-296,14,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Cole Palmer,20,eng ENG,AM,22-238,90,1,0,0,1,0,0,0,,0,0,0,0,0,1,1,0
+Moisés Caicedo,25,ec ECU,DM,23-058,90,5,3,1,3,1,1,2,50.0,1,1,0,1,1,6,2,0
+Enzo Fernández,8,ar ARG,DM,23-348,90,1,1,1,0,0,0,0,,0,1,0,1,0,1,1,0
+Marc Cucurella,3,es ESP,LB,26-161,90,0,0,0,0,0,0,0,,0,1,1,0,0,0,2,1
+Levi Colwill,6,eng ENG,CB,21-308,90,0,0,0,0,0,0,0,,0,0,0,0,2,2,3,0
+Tosin Adarabioyo,4,eng ENG,CB,27-097,90,0,0,0,0,0,0,0,,0,1,1,0,0,0,1,0
+Axel Disasi,2,fr FRA,RB,26-294,76,2,0,1,1,0,2,4,50.0,2,1,0,1,0,2,2,1
+Malo Gusto,27,fr FRA,RB,21-225,14,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0
+Filip Jørgensen,12,dk DEN,GK,22-258,90,0,0,0,0,0,0,0,,0,0,0,0,0,0,0,0

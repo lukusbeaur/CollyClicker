@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Danny Welbeck,18,eng ENG,FW,33-301,90,25,25,0,0,0,0,0,0,0,0,0,0,23,0,1
+Kaoru Mitoma,22,jp JPN,"LW,LM",27-125,90,48,47,1,0,1,0,8,1,0,0,0,0,33,0,3
+Simon Adingra,11,ci CIV,RW,22-265,61,24,24,0,0,0,0,5,0,0,0,0,0,15,0,2
+Yankuba Minteh,17,gm GAM,"RW,RM",20-062,29,18,15,3,0,0,0,9,0,3,0,3,0,9,0,0
+Georginio Rutter,14,fr FRA,AM,22-155,70,27,25,2,0,0,0,1,0,0,0,0,0,22,0,0
+João Pedro,9,br BRA,"RW,AM",22-362,20,13,10,3,0,0,0,0,2,0,0,0,0,10,0,0
+Carlos Baleba,20,cm CMR,DM,20-263,61,24,24,0,0,0,1,0,0,0,0,0,0,20,0,0
+Mats Wieffer,27,nl NED,"DM,CM",24-311,29,28,28,0,0,0,0,0,0,0,0,0,0,25,0,0
+Jack Hinshelwood,41,eng ENG,"DM,CM",19-164,90,49,48,1,1,0,2,1,0,0,0,0,0,44,0,0
+Pervis Estupiñán,30,ec ECU,LB,26-245,81,64,50,14,1,0,0,14,7,6,4,2,0,49,0,0
+Evan Ferguson,28,ie IRL,LW,19-339,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Lewis Dunk,5,eng ENG,CB,32-306,90,108,102,6,3,0,0,2,3,0,0,0,0,99,0,0
+Jan Paul van Hecke,29,nl NED,CB,24-106,90,99,92,7,7,0,1,1,0,0,0,0,0,88,0,0
+Joël Veltman,34,nl NED,"RB,CB",32-251,90,56,43,13,1,0,0,2,12,0,0,0,0,39,0,2
+Bart Verbruggen,1,nl NED,GK,22-035,90,36,34,2,1,0,0,0,0,0,0,0,0,34,0,0

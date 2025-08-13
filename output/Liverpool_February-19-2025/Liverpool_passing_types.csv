@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Diogo Jota,20,pt POR,FW,28-077,65,16,15,1,0,0,0,0,0,0,0,0,0,10,0,1
+Darwin Núñez,9,uy URU,FW,25-240,25,3,3,0,0,0,0,0,0,0,0,0,0,2,0,0
+Curtis Jones,17,eng ENG,"LW,DM",24-020,90,25,24,1,0,1,0,0,1,0,0,0,0,23,0,1
+Mohamed Salah,11,eg EGY,RW,32-249,90,27,27,0,0,1,0,3,0,0,0,0,0,16,0,2
+Dominik Szoboszlai,8,hu HUN,AM,24-117,90,31,28,3,0,1,0,2,1,1,1,0,0,23,0,4
+Alexis Mac Allister,10,ar ARG,DM,26-057,80,56,47,8,2,0,0,6,1,5,4,0,0,49,1,1
+Luis Díaz,7,co COL,LW,28-037,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Ryan Gravenberch,38,nl NED,DM,22-279,90,35,34,1,0,0,0,0,0,0,0,0,0,31,0,0
+Andrew Robertson,26,sct SCO,LB,30-345,90,55,42,13,2,1,0,6,9,2,2,0,0,41,0,3
+Virgil van Dijk,4,nl NED,CB,33-226,90,76,68,8,3,1,1,0,0,0,0,0,0,61,0,0
+Ibrahima Konaté,5,fr FRA,CB,25-270,90,42,41,1,1,0,0,0,0,0,0,0,0,38,0,1
+Trent Alexander-Arnold,66,eng ENG,RB,26-135,65,50,46,4,1,1,2,2,3,0,0,0,0,41,0,1
+Conor Bradley,84,nir NIR,RB,21-225,23,8,7,1,0,0,0,1,1,0,0,0,0,5,0,2
+Jarell Quansah,78,eng ENG,RB,22-021,2,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+Alisson,1,br BRA,GK,32-140,90,23,19,3,2,0,0,0,0,0,0,0,0,19,1,0

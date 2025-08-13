@@ -1,0 +1,17 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Danny Welbeck,18,eng ENG,FW,33-265,90,18,18,0,0,0,0,0,0,0,0,0,0,16,0,1
+Kaoru Mitoma,22,jp JPN,LW,27-089,88,29,29,0,0,0,0,1,0,0,0,0,0,24,0,0
+Yasin Ayari,26,se SWE,LW,20-316,2,2,2,0,0,0,0,0,0,0,0,0,0,1,0,1
+Yankuba Minteh,17,gm GAM,RW,20-026,44,13,13,0,0,0,0,0,0,0,0,0,0,9,0,3
+Simon Adingra,24,ci CIV,RW,22-229,46,21,20,0,0,0,0,1,0,0,0,0,0,13,1,0
+João Pedro,9,br BRA,AM,22-326,81,16,16,0,0,0,0,0,0,0,0,0,0,9,0,2
+Jeremy Sarmiento,16,ec ECU,AM,22-062,9,6,6,0,0,0,0,0,0,0,0,0,0,6,0,0
+Mats Wieffer,27,nl NED,DM,24-275,90,72,72,0,0,0,1,0,0,0,0,0,0,63,0,0
+James Milner,6,eng ENG,DM,38-226,81,40,31,9,3,0,0,7,0,5,2,2,0,30,0,0
+Billy Gilmour,11,sct SCO,DM,23-067,9,12,12,0,0,1,0,0,0,0,0,0,0,10,0,0
+Jack Hinshelwood,41,eng ENG,LB,19-128,90,72,58,14,1,0,2,3,13,0,0,0,0,60,0,1
+Lewis Dunk,5,eng ENG,CB,32-270,75,70,56,14,4,0,1,0,0,0,0,0,0,60,0,0
+Adam Webster,4,eng ENG,CB,29-226,15,33,33,0,0,0,0,1,0,0,0,0,0,30,0,1
+Jan Paul van Hecke,29,nl NED,CB,24-070,90,87,85,2,2,0,0,0,0,0,0,0,0,81,0,0
+Joël Veltman,34,nl NED,RB,32-215,90,52,48,4,3,0,0,1,1,0,0,0,0,42,0,1
+Jason Steele,23,eng ENG,GK,33-365,90,62,58,4,2,0,0,0,0,0,0,0,0,56,0,0

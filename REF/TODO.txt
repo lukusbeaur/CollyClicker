@@ -1,4 +1,9 @@
 # TODO: Refactor app.go for Per-Sport Configuration and Handlers
+IMPORTANT 
+SMall issue passing and passing types are the same file, Check handlers and selectors 
+
+
+
 
 ## 1. Create a Configuration File for Each Sport
 - Create a configuration file for each sport (e.g., `soccerCfg.go` or `soccerCfg.txt`).

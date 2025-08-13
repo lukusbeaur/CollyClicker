@@ -1,0 +1,16 @@
+Player,#,Nation,Pos,Age,Min,Att,Live,Dead,FK,TB,Sw,Crs,TI,CK,In,Out,Str,Cmp,Off,Blocks
+Erling Haaland,9,no NOR,FW,24-230,90,13,12,1,0,0,0,0,0,0,0,0,0,10,0,1
+Jeremy Doku,11,be BEL,"LM,RM",22-285,90,48,48,0,0,0,0,3,0,0,0,0,0,39,0,1
+Phil Foden,47,eng ENG,CM,24-284,68,24,22,2,0,0,0,2,0,1,0,0,1,21,0,0
+Kevin De Bruyne,17,be BEL,CM,33-253,22,20,19,0,0,0,0,1,0,0,0,0,0,17,1,0
+Bernardo Silva,20,pt POR,"CM,RM",30-210,90,44,43,1,1,0,0,1,0,0,0,0,0,37,0,2
+Sávio,26,br BRA,"RM,LM",20-332,68,37,37,0,0,0,0,6,0,0,0,0,0,26,0,5
+Omar Marmoush,7,eg EGY,CM,26-029,22,12,11,1,0,0,0,2,0,1,0,0,0,8,0,0
+Nicolás González,14,es ESP,DM,23-064,61,44,41,3,3,0,0,0,0,0,0,0,0,39,0,0
+Mateo Kovačić,8,hr CRO,DM,30-306,29,25,24,1,1,1,0,0,0,0,0,0,0,20,0,1
+Joško Gvardiol,24,hr CRO,LB,23-044,90,106,97,9,1,0,1,0,8,0,0,0,0,95,0,1
+Rúben Dias,3,pt POR,CB,27-298,90,95,94,1,1,0,1,0,0,0,0,0,0,93,0,0
+Abdukodir Khusanov,45,uz UZB,CB,21-007,90,72,71,1,1,0,0,1,0,0,0,0,0,65,0,2
+Matheus Nunes,27,pt POR,RB,26-193,60,56,50,6,1,0,0,1,5,0,0,0,0,49,0,2
+Rico Lewis,82,eng ENG,RB,20-107,30,21,17,4,0,0,0,0,4,0,0,0,0,19,0,0
+Ederson,31,br BRA,GK,31-203,90,35,29,6,0,0,0,0,0,0,0,0,0,33,0,0

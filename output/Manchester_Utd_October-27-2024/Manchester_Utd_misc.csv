@@ -1,0 +1,15 @@
+Player,#,Nation,Pos,Age,Min,CrdY,CrdR,2CrdY,Fls,Fld,Off,Crs,Int,TklW,PKwon,PKcon,OG,Recov,Won,Lost,Won%
+Rasmus Højlund,9,dk DEN,FW,21-266,90,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,50.0
+Alejandro Garnacho,17,ar ARG,LW,20-118,90,0,0,0,0,0,1,6,0,0,0,0,0,6,0,0,
+Marcus Rashford,10,eng ENG,RW,26-362,58,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,
+Amad Diallo,16,ci CIV,RW,22-108,32,0,0,0,0,0,1,2,0,1,0,0,0,1,1,1,50.0
+Bruno Fernandes,8,pt POR,"AM,DM",30-049,90,0,0,0,1,3,0,4,0,0,0,0,0,7,0,1,0.0
+Casemiro,18,br BRA,DM,32-247,90,0,0,0,1,1,0,2,1,1,0,0,0,9,3,1,75.0
+Christian Eriksen,14,dk DEN,DM,32-256,78,0,0,0,0,0,0,5,1,1,0,0,0,4,0,0,
+Joshua Zirkzee,11,nl NED,"AM,DM",23-158,12,0,0,0,0,0,0,1,0,0,0,0,0,0,1,4,20.0
+Noussair Mazraoui,3,ma MAR,LB,26-348,83,0,0,0,1,1,0,0,0,3,0,0,0,3,1,0,100.0
+Victor Lindelöf,2,se SWE,CB,30-102,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0.0
+Lisandro Martínez,6,ar ARG,"CB,LB",26-283,90,0,0,0,0,0,0,1,0,4,0,0,0,3,2,2,50.0
+Matthijs de Ligt,4,nl NED,CB,25-076,90,1,0,0,3,0,0,0,2,0,0,1,0,2,3,1,75.0
+Diogo Dalot,20,pt POR,RB,25-223,90,0,0,0,1,1,0,2,2,1,0,0,0,4,2,0,100.0
+André Onana,24,cm CMR,GK,28-208,90,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

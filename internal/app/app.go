@@ -23,6 +23,9 @@ var dirName_unready = "links/"
 var dirname_ready = dirName_unready + "scrapeReady/"
 var tempFilePath string
 
+// Setting global variabl Max retries for 429 errors
+const maxRetries = 2
+
 //var url string
 
 func Run() error {
@@ -33,10 +36,23 @@ func Run() error {
 	//First c.OnHTML is pulling all the links with in the specified table. Reusing colly collector for everything else
 	//This initial scrape does not work , fbref removed all 'score links' from the main schedule page.
 	fbref := []string{}
+
+	// --- Colly Collector set up Non call back handlers ------------------------------>
 	c := colly.NewCollector(
 		colly.AllowedDomains("fbref.com"),
+		colly.Async(false),
 		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"),
 	)
+	c.Limit(&colly.LimitRule{
+		DomainGlob:  "*",
+		Parallelism: 1,
+		Delay:       1 * time.Second, // min
+		RandomDelay: 1 * time.Second, // extra random
+	})
+	// Dont ignore robot.txt but allow domain revisiting
+	c.IgnoreRobotsTxt = false
+	c.AllowURLRevisit = true
+	//------------------end of Non callback handlers---------------------------------------->
 	//On request set additional headers
 	c.OnRequest(func(r *colly.Request) {
 		r.Headers.Set("Referer", "https://fbref.com/")
@@ -94,154 +110,32 @@ func Run() error {
 
 	Util.Logger.Debug("Creation of CollyCollector : c:=")
 
-	//Set up the collector with the necessary configurations--------------------->
-	c = colly.NewCollector(
-		colly.AllowedDomains("fbref.com"),
-		colly.Async(false), // keep it simple while debugging
-		colly.UserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
-	)
-	c.Limit(&colly.LimitRule{
-		DomainGlob:  "*",
-		Parallelism: 1,
-		Delay:       2 * time.Second, // min
-		RandomDelay: 5 * time.Second, // extra random
-	})
-
-	// Dont ignore robot.txt but allow domain revisiting
-	c.IgnoreRobotsTxt = false
-	c.AllowURLRevisit = true
-
-	// Setting global variabl Max retries for 429 errors
-	const maxRetries = 2
-
-	//On request set additional headers
-	c.OnRequest(func(r *colly.Request) {
-		r.Headers.Set("Referer", "https://fbref.com/")
-		// set context for each request to track retry count
-		// .(int) is a type assertion to get the retry count
-		if _, ok := r.Ctx.GetAny("retryCount").(int); !ok {
-			r.Ctx.Put("retryCount", 0)
-		}
-
-	})
-
-	c.OnError(func(r *colly.Response, err error) {
-		//Get all context values
-		record := r.Ctx.Get("record").(string)
-		url := r.Ctx.Get("Url").(string)
-
-		if r == nil {
-			// network or other error before response
-			Util.Logger.Error("Request failed before response", "err", err)
-			return
-		}
-
-		if r.StatusCode != 429 {
-			Util.Logger.Error("Colly request error",
-				"url", r.Request.URL.String(),
-				"status", r.StatusCode,
-				"err", err,
-			)
-			return
-		}
-		Util.Logger.Error("Colly request error",
-			"url", r.Request.URL.String(),
-			"status", r.StatusCode,
-			"err", err,
-		)
-		// r.ctx is a per request context, so we can store retry count
-		// "retryCount" is a key in the context to track retries
-		// .(int) is a type assertion to get the retry count
-		// no need for global variable, as each request has its own context
-		// no race condition, as each request has its own context
-		retryCount := r.Ctx.GetAny("retryCount").(int)
-		if retryCount >= maxRetries {
-			Util.Logger.Error("429 max retries reached",
-				"url", r.Request.URL.String(),
-				"retries", retryCount,
-			)
-			// If max retries reached, add URL and filename to cache
-			Util.AddToRetryCache(url, record)
-			Util.Logger.Warn("Added to retry cache",
-				"url", url,
-				"filename", record,
-				"Location", "App.go - OnError 429 handler")
-			return
-		}
-		// Compute sleep from Retry-After (seconds or HTTP-date), else default
-		sleep := 60 * time.Second
-		// If Retry-After header is present, use it to determine sleep duration
-		// strconv.Atoi converts string to int, http.ParseTime parses HTTP-date
-		//if e == no error than seconds is the right format
-		// if e != nil then it is not seconds, so try to parse it as HTTP-date
-		if ra := r.Headers.Get("Retry-After"); ra != "" {
-			if secs, e := strconv.Atoi(strings.TrimSpace(ra)); e == nil {
-				sleep = time.Duration(secs) * time.Second
-			} else if when, e := http.ParseTime(ra); e == nil {
-				if d := time.Until(when); d > 0 && d < 30*time.Minute {
-					sleep = d
-				}
-			}
-		}
-
-		// Exponential backoff with jitter
-		// 1<<retryCount is a bit shift operation that calculates 2^retryCount
-		// This gives us 1, 2, 4, 8, ... seconds for each retry
-		// We cap the backoff at 60 seconds to avoid excessive delays
-		backoff := time.Duration(1<<retryCount) * time.Second // 1s,2s,4s,8s...
-		if backoff > 60*time.Second {
-			backoff = 60 * time.Second
-		}
-		jitter := time.Duration(rand.Intn(4000)) * time.Millisecond
-		wait := sleep + backoff + jitter
-
-		Util.Logger.Warn("429 received; backing off",
-			"url", r.Request.URL.String(),
-			"retryAfter", sleep,
-			"backoff", backoff,
-			"wait", wait,
-			"retries", retryCount+1,
-		)
-
-		// wait is calculated as sleep + backoff + jitter
-		//429 errors are rate limites, backoff is obtained from the Retry-After header
-		time.Sleep(wait)
-		r.Ctx.Put("retryCount", retryCount+1)
-		_ = r.Request.Retry()
-
-	})
-	// --------------- End of Colly Collector Setup ----------------------------->
-
-	// --- Get handlers ---
-	handlers := scraper.GetSelectorHandlers(&pageData, &keeperCounter, &fbref)
-
-	dateStr, err := fileutils.ExtractDateFromURL(url)
-	Util.Logger.Debug("Extracting Date from URL string for building output folder structure.",
-		"Date", dateStr,
-		"Location", "App.go - After Handler selectors -> Get Dates")
+	//-----------------get Caching info ----------------------------------------->
+	cacheInfo, err := Util.OpenTempFileString("Soccer")
 	if err != nil {
-		Util.Logger.Error("Error Extracting date from ",
-			"Location", "App.go - After Handler selectors -> Get Dates",
-			"URL", url,
+		Util.Logger.Error("Error opening temporary file for caching",
+			"Location", "app.go - OpenTempFileString",
+			"Sport", "Soccer",
 			"Error", err)
+		cacheInfo = []string{}
 	}
+	cacheFile := cacheInfo[0]
+	cacheIndex := cacheInfo[2]
 
-	// --- Register handlers with collector ---
-	for _, h := range handlers {
+	Util.Logger.Debug("Cache file and index",
+		"Index", cacheIndex,
+		"CacheFile", cacheFile,
+		"Location", "app.go - OpenTempFileString")
+	//-----------------end of Caching info --------------------------------------->
 
-		//c.OnHTML(h.Selector, h.Handler)
-		c.OnHTML(h.Selector, func(e *colly.HTMLElement) {
-			startHandler := time.Now()
-			h.Handler(e) //  handler logic
-			elapsedHandler := time.Since(startHandler)
-			Util.Logger.Info("Handler finished",
-				"Selector", h.Selector,
-				"Duration", elapsedHandler,
-				"URL", e.Request.URL.String())
-		})
-	} //Is this right? I didnt have a } here before, but it seems like it should be here.
 	//Take array of CSV file names, and open one at a time.
 	for _, record := range csvArray {
+
+		//Check for cache info and if it exists, skip the file-------------->
+		if record != cacheFile && cacheFile != "" {
+			continue // skip this file if it is not the cache file
+		}
+		//Caching logic over                   ------------------------------>
 		Util.Logger.Debug("Reading CSVs from csvarray.",
 			"Location", "app.go - Range csvArray loop",
 			"Record", record)
@@ -256,11 +150,6 @@ func Run() error {
 		}
 		defer csvfile.Close()
 
-		//Create onRequest record context
-		ctx := colly.NewContext()
-		ctx.Put("record", record) //set the record in context
-		// more below to set the sport, cache type, index, and URL ------------------->
-
 		// At this point we have a csvfile iterator that can be used to read the CSV file line by line.
 		for {
 			// Start timer for begining of scraping
@@ -268,6 +157,18 @@ func Run() error {
 
 			// Read Row and index from CSVfile iterator
 			row, indexer, _, err := csvfile.Next()
+
+			//Caching logic, find index and if it is not the cache file, skip the file
+			if strconv.Itoa(indexer) < cacheIndex {
+				continue // skip this file if it is not the cache file
+			} else if strconv.Itoa(indexer) == cacheIndex && record != cacheFile {
+				Util.Logger.Debug("Continuing with cached file",
+					"Record", record,
+					"Index", strconv.Itoa(indexer),
+					"CacheIndex", cacheIndex,
+					"Location", "app.go - Range csvArray loop -> inside For loop")
+			}
+			//End caching logic -------------------------------->
 
 			//If error is End of File, break the loop. Go back to CSVarray loop
 			if errors.Is(err, io.EOF) {
@@ -301,17 +202,14 @@ func Run() error {
 				Sport:       "Soccer",
 				CacheType:   "current",
 			}
-			// Set the context for the request with the current cache
-			ctx.Put("Sport", curCache.Sport)         // Set the sport type in context
-			ctx.Put("CacheType", curCache.CacheType) // Set the cache type in context
-			ctx.Put("Index", curCache.Index)         // Set the index in context
-			ctx.Put("Url", curCache.CurrentURL)      // Set the URL in context
-			// Set the current file in context
-			if err := c.Request("GET", url, nil, ctx, nil); err != nil {
-				Util.Logger.Error("Request enqueue failed",
-					"url", url, "file", record, "err", err)
-				continue
-			}
+			// Build a fresh context for THIS URL
+			reqCtx := colly.NewContext()
+			reqCtx.Put("Record", record)
+			reqCtx.Put("Sport", curCache.Sport)
+			reqCtx.Put("CacheType", curCache.CacheType)
+			reqCtx.Put("Index", strconv.Itoa(indexer)) // Put takes string
+			reqCtx.Put("Url", curCache.CurrentURL)
+			reqCtx.Put("retryCount", 0)
 
 			// Start Caching current links and URLS
 			// Create a temporary directory, tmp/CollyClicker/Sport
@@ -332,18 +230,134 @@ func Run() error {
 					"Location", "app.go - Range csvArray loop -> inside For loop")
 				continue
 			}
-
-			// --- Add scraping state ---
-			// why tf do I still have keeperCounter here?
+			// --- Per-request scraping state + handlers on a CLONE to avoid stacking
 			keeperCounter := 0
-
-			// Ititializing pageData with empty structs, this will be filled by the handlers
 			pageData := []scraper.TeamData{{}, {}}
-			Util.Logger.Info("Scraping State",
-				"URL", url,
-				"Keeper Counter", keeperCounter)
 
-			scraper.PageDataToCSV(pageData, dateStr)
+			pageC := c.Clone()
+
+			// --------------- Start: Colly Collector context per URL set up----------------------------->
+			//On request set additional headers
+			pageC.OnRequest(func(r *colly.Request) {
+				r.Headers.Set("Referer", "https://fbref.com/")
+				r.Headers.Set("Accept-Language", "en-US,en;q=0.9")
+				// set context for each request to track retry count
+				// .(int) is a type assertion to get the retry count
+				if _, ok := r.Ctx.GetAny("retryCount").(int); !ok {
+					r.Ctx.Put("retryCount", 0)
+				}
+
+			}) //End of onREqeust funciton
+
+			pageC.OnError(func(r *colly.Response, err error) {
+				//Get all context values
+
+				if r == nil {
+					// network or other error before response
+					Util.Logger.Error("Request failed before response", "err", err)
+					return
+				}
+				//Ctx is a per request context, place after r==nil check to avoid nil pointer dereference
+				// Safe pulls from context (Ctx can be nil; keys may be missing)
+				var record, url string
+				if r.Ctx != nil {
+					record = r.Ctx.Get("Record")
+					url = r.Ctx.Get("Url")
+				}
+				if r.StatusCode != 429 {
+					Util.Logger.Error("Colly request error",
+						"url", url,
+						"status", r.StatusCode,
+						"err", err,
+					)
+					return
+				}
+				Util.Logger.Error("Colly request error",
+					"url", url,
+					"status", r.StatusCode,
+					"err", err,
+				)
+				// r.ctx is a per request context, so we can store retry count
+				// "retryCount" is a key in the context to track retries
+				// .(int) is a type assertion to get the retry count
+				// no need for global variable, as each request has its own context
+				// no race condition, as each request has its own context
+				retryCount, _ := r.Ctx.GetAny("retryCount").(int)
+				if retryCount >= maxRetries {
+					Util.Logger.Error("429 max retries reached",
+						"url", r.Request.URL.String(),
+						"retries", retryCount,
+					)
+					// If max retries reached, add URL and filename to cache
+					Util.AddToRetryCache(url, record)
+					Util.Logger.Warn("Added to retry cache",
+						"url", url,
+						"filename", record,
+						"Location", "App.go - OnError 429 handler")
+					return
+				}
+				// Compute sleep from Retry-After (seconds or HTTP-date), else default
+				sleep := 60 * time.Second
+				// If Retry-After header is present, use it to determine sleep duration
+				// strconv.Atoi converts string to int, http.ParseTime parses HTTP-date
+				//if e == no error than seconds is the right format
+				// if e != nil then it is not seconds, so try to parse it as HTTP-date
+				if ra := r.Headers.Get("Retry-After"); ra != "" {
+					if secs, e := strconv.Atoi(strings.TrimSpace(ra)); e == nil {
+						sleep = time.Duration(secs) * time.Second
+					} else if when, e := http.ParseTime(ra); e == nil {
+						if d := time.Until(when); d > 0 && d < 30*time.Minute {
+							sleep = d
+						}
+					}
+				}
+
+				// Exponential backoff with jitter
+				// 1<<retryCount is a bit shift operation that calculates 2^retryCount
+				// This gives us 1, 2, 4, 8, ... seconds for each retry
+				// We cap the backoff at 60 seconds to avoid excessive delays
+				backoff := time.Duration(1<<retryCount) * time.Second // 1s,2s,4s,8s...
+				if backoff > 60*time.Second {
+					backoff = 60 * time.Second
+				}
+				jitter := time.Duration(rand.Intn(4000)) * time.Millisecond
+				wait := sleep + backoff + jitter
+
+				Util.Logger.Warn("429 received; backing off",
+					"url", r.Request.URL.String(),
+					"retryAfter", sleep,
+					"backoff", backoff,
+					"wait", wait,
+					"retries", retryCount+1,
+				)
+
+				// wait is calculated as sleep + backoff + jitter
+				//429 errors are rate limites, backoff is obtained from the Retry-After header
+				time.Sleep(wait)
+				r.Ctx.Put("retryCount", retryCount+1)
+				_ = r.Request.Retry()
+
+			}) //end of on error handler
+
+			// --------------- End of Colly Collector context per URL set up----------------------------->
+			for _, h := range scraper.GetSelectorHandlers(&pageData, &keeperCounter, &fbref) {
+				h := h // shadow to avoid loop-var capture
+				pageC.OnHTML(h.Selector, func(e *colly.HTMLElement) { h.Handler(e) })
+			}
+			// write once the page is fully scraped
+			dateStr, _ := fileutils.ExtractDateFromURL(url)
+			pageC.OnScraped(func(r *colly.Response) {
+				scraper.PageDataToCSV(pageData, dateStr)
+				Util.Logger.Info("Wrote pageData", "rows", len(pageData), "url", r.Request.URL.String())
+			})
+
+			// Send the request with context and time it here (url is in scope)
+			urlStart := time.Now()
+			if err := pageC.Request("GET", url, nil, reqCtx, nil); err != nil {
+				Util.Logger.Error("Request enqueue failed", "url", url, "file", record, "err", err)
+				continue
+			}
+			Util.Logger.Info("Finished URL Visit", "URL", url, "Duration", time.Since(urlStart))
 			t := time.Now()
 			elapsed := t.Sub(start)
 			Util.Logger.Info("Finished scraping Handler ,",
@@ -351,30 +365,10 @@ func Run() error {
 				"Scrape time", time.Since(funcDur),
 				//"Handler", handlers)
 			)
-		}
-		//--- Visit URL and log the time right before and after for analysis ---
-		// This is where the actual scraping happens
-		urlStart := time.Now()
-		err = c.Visit(url)
-		t := time.Now()
-		Util.Logger.Info("Finished URL Visit",
-			"URL", url,
-			"Duration", t.Sub(urlStart),
-			"Location", "App.go - c.Visit()")
-		if err != nil {
-			Util.Logger.Error("Error Extracting date from ",
-				"Location", "App.go - c.Visit()",
-				"URL", url,
-				"Error", err)
-			continue
-		}
-		t = time.Now()
-		elapsed := t.Sub(start)
-		Util.Logger.Info("Finished URL,",
-			"Total Duration", elapsed,
-			"URL", url)
-	}
+		} //End of URL for loop
+	} //End of CSV array for loop
 
+	// Start time, Log total duration of all URLS
 	t := time.Now()
 	elapsed := t.Sub(start)
 	Util.Logger.Info("Finished scraping all URLS/ All CSVs.,",
